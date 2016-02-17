@@ -1,0 +1,41 @@
+body { 
+  color : #000000; 
+  background : #ffffff; 
+  font-family : "Times New Roman", Times, serif;
+  font-size : 12pt; 
+  text-decoration: none;
+}
+
+a { 
+  font-size: 12px;
+  text-decoration : none; 
+  color : #0000ff; 
+}
+
+a:link {
+	text-decoration: none;
+}	
+
+a:link:after, a:visited:after {
+content: " (" attr(href) ") ";
+font-size: 70%;
+}
+
+a:hover {
+	text-decoration: none;
+	font-size: 15px;
+}
+a:active {
+	text-decoration: none;
+	color: #97C4E1;
+}
+
+
+
+nav, sidebar, footer, header, aside { 
+  display : none; 
+}
+
+#footer-area a:hover{
+font-size: 15px;	
+}
