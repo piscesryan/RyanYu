@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_background1"
+    android:orientation="vertical"
+    android:padding="3dp" >
+
+    <!-- 上半侧布局 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@drawable/linearlayout_outframe_contact"
+        android:orientation="horizontal" >
+
+        <!-- 上半侧左半边布局，通讯 -->
+
+        <LinearLayout
+            android:id="@+id/linearlayout_contact"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/linearlayout_outframe_contact"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="通\n讯\n录"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <!-- 上半侧右边布局 ，生活 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/linearlayout_outframe_contact"
+            android:orientation="vertical" >
+
+            <!-- 上半侧 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/linearlayout_outframe_contact"
+                android:orientation="horizontal" >
+
+                <!-- 上左，天气预报 -->
+
+                <LinearLayout
+                    android:id="@+id/linearlayout_weatherReport"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/linearlayout_outframe_contact"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:text="天\n气\n预\n报\n"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <!-- 上右，指南针 -->
+
+                <LinearLayout
+                    android:id="@+id/linearlayout_compass"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/linearlayout_outframe_contact"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:text="指\n南\n针\n\n"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 下半侧 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/linearlayout_outframe_contact"
+                android:orientation="horizontal" >
+
+                <!-- 下左，号码归属地 -->
+
+                <LinearLayout
+                    android:id="@+id/linearLayout_numberAdd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/linearlayout_outframe_contact"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/linearlayout_outframe_contact"
+                        android:gravity="center"
+                        android:text="号\n码\n归\n属\n地"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <!-- 下右，查询快递 -->
+
+                <LinearLayout
+                    android:id="@+id/linearlayout_mail"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/linearlayout_outframe_contact"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:text="快\n递\n查\n询\n"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 下半侧布局 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@drawable/linearlayout_outframe_contact"
+        android:orientation="horizontal" >
+
+        <!-- 下半侧右半边布局，娱乐 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/linearlayout_outframe_contact"
+            android:orientation="vertical" >
+
+            <TabHost
+                android:id="@android:id/tabhost"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/linearlayout_outframe_contact"
+                    android:orientation="vertical" >
+
+                    <TabWidget
+                        android:id="@android:id/tabs"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/linearlayout_outframe_contact"
+                        android:paddingLeft="1dip"
+                        android:paddingRight="1dip"
+                        android:paddingTop="4dip" />
+
+                    <FrameLayout
+                        android:id="@android:id/tabcontent"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </TabHost>
+        </LinearLayout>
+        <!-- 下半侧左边布局 -->
+
+        <LinearLayout
+            android:id="@+id/linearlayout_entertainment"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/linearlayout_outframe_contact"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="娱\n乐"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

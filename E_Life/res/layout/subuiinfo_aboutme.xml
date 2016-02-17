@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:umadsdk="http://schemas.android.com/apk/res/com.LoveBus"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+	
+    
+	<EditText 
+	    android:hint="单击,输入内容\n\n\n按后退键,保存并退出编辑"
+	    android:paddingTop="0dp"
+	    android:paddingRight="0dp"
+	    android:paddingBottom="0dp" 
+	    android:paddingLeft="0dp"
+	    android:id="@+id/subuiinfo_aboutme_editText_things"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:gravity="left|top"
+	    android:focusable="false"/>
+ 
+</LinearLayout>
