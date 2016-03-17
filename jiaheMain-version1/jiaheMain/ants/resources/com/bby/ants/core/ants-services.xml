@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+       default-lazy-init="true">
+
+    <!-- .....................数据库表Service..................... -->
+    <!-- addUserLogService -->
+    <bean id="addUserLogService" class="com.bby.ants.service.AddUserlogService"/>
+    <!-- alarminfo -->
+    <bean id="alarmService" class="com.bby.ants.service.AlarmService"/>
+    <!-- Component -->
+    <bean id="componentService" class="com.bby.ants.service.ComponentService"/>
+    <!-- Gateway Service -->
+    <bean id="gatewayService" class="com.bby.ants.service.GateService"/>
+    <!-- SystemLog Service -->
+    <bean id="l_logService" class="com.bby.ants.service.L_LogService"/>
+    <bean id="menuService" class="com.bby.ants.service.MenuService"/>
+    <!-- Monitordata -->
+    <bean id="monitorDataService" class="com.bby.ants.service.MonitorDataService"/>
+     <!-- Monitorpoint -->
+    <bean id="monitorPointService" class="com.bby.ants.service.MonitorpointService"/>
+    <!-- 发射机 Service -->
+    <bean id="senderService" class="com.bby.ants.service.SenderService"/>
+    <!-- .....................数据库表Service..................... -->
+    
+    
+    <!-- .....................界面模块Service..................... -->
+    <!-- 告警管理 -->
+    <bean id="alarmManageService" class="com.bby.ants.service.AlarmManageService"/>
+    <!-- 配置 -->
+    <bean id="configurationService" class="com.bby.ants.service.ConfigurationService"/>
+    <!-- 查询中心 Service -->
+    <bean id="queryCenterService" class="com.bby.ants.service.QueryCenterService"/>
+    <!-- 数据处理 -->
+    <bean id="dataProcessService" class="com.bby.ants.service.DataProcessService"/>
+    <!-- 系统日志 Service -->
+    <bean id="systemLogService" class="com.bby.ants.service.SystemLogService"/>
+    <!-- .....................界面模块Service..................... -->
+    
+    
+    
+</beans>

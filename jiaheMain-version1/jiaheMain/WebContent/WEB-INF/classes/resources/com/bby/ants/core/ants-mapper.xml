@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd"
+	default-lazy-init="true">
+
+
+
+	<!-- addUserlog -->
+	<bean id="addUserlogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.bby.ants.dao.AdduserlogMapper" />
+		<property name="sqlSessionFactory" ref="wlSqlSessionFactory" />
+	</bean>
+	<!-- alarminfo -->
+	<bean id="alarminfoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.bby.ants.dao.AlarminfoMapper" />
+		<property name="sqlSessionFactory" ref="wlSqlSessionFactory" />
+	</bean>
+	<!-- Component -->
+	<bean id="componentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.bby.ants.dao.ComponentMapper" />
+		<property name="sqlSessionFactory" ref="wlSqlSessionFactory" />
+	</bean>
+	<!-- 配置-GateWay -->
+	<bean id="gatewayMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.bby.ants.dao.GatewayMapper" />
+		<property name="sqlSessionFactory" ref="wlSqlSessionFactory" />
+	</bean>
+	<!-- 系统日志,对应两张表（系统日志和用户管理） -->
+	<bean id="l_logMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.bby.ants.dao.l_logMapper" />
+		<property name="sqlSessionFactory" ref="wlSqlSessionFactory" />
+	</bean>
+	<bean id="menuMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.bby.ants.dao.MenuMapper" />
+		<property name="sqlSessionFactory" ref="wlSqlSessionFactory" />
+	</bean>
+	<!-- MonitorData -->
+	<bean id="mdMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.bby.ants.dao.MonitordataMapper" />
+		<property name="sqlSessionFactory" ref="wlSqlSessionFactory" />
+	</bean>
+	<!-- Monitorpointpoints -->
+	<bean id="mpMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.bby.ants.dao.MonitorpointsMapper" />
+		<property name="sqlSessionFactory" ref="wlSqlSessionFactory" />
+	</bean>
+	<!-- 发射机Mapper -->
+	<bean id="senderMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.bby.ants.dao.SenderMapper" />
+		<property name="sqlSessionFactory" ref="wlSqlSessionFactory" />
+	</bean>
+
+
+
+
+
+</beans>

@@ -1,0 +1,119 @@
+.help-box {
+	position: fixed;
+	right: 50px;
+	bottom: 100px;
+	width: 55px;
+	background-color: #555;
+	border-radius: 30px;
+}
+.help-box a{
+	border-radius: 30px;
+}
+
+ol, ul {
+	list-style: outside none none;
+}
+
+.help-box ul li {
+	position: relative;
+}
+
+
+
+* {
+	box-sizing: border-box;
+}
+
+.help-box ul li a.link {
+	display: block;
+	width: 100%;
+	padding: 10px 0px;
+	text-align: center;
+	color: #FFF;
+	font-size: 150%;
+}
+
+a {
+	outline: medium none;
+}
+
+.fa {
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-feature-settings: normal;
+	font-language-override: normal;
+	font-kerning: auto;
+	font-synthesis: weight style;
+	font-variant: normal;
+	font-size: inherit;
+	text-rendering: auto;
+	transform: translate(0px, 0px);
+}
+
+*::after, *::before {
+	box-sizing: border-box;
+}
+
+.help-box ul li .dialog {
+	position: absolute;
+	top: 50%;
+	margin-top: -27px;
+	right: 80px;
+	border: 1px solid #E3E3E3;
+	background-color: #FFF;
+	padding: 15px;
+	font-size: 14px;
+	color: #666;
+	white-space: nowrap;
+	text-align: center;
+	line-height: 2em;
+}
+
+.hide {
+	display: none !important;
+}
+
+.help-box ul li .dialog .arrow {
+	position: absolute;
+	right: -8px;
+	top: 20px;
+	width: 8px;
+	height: 13px;
+	background: transparent url("../images/dialog_arrow.png") no-repeat
+		scroll 50% 50%;
+}
+
+.help-box ul li a.link.last {
+	border-bottom: medium none;
+	background-color: #009EE5;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+ blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+ em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+ b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+ details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
+ output, ruby, section, summary, time, mark, audio, video {
+ margin: 0px;
+ padding: 0px;
+ border: 0px none;
+ font-family: inherit;
+ font-style: inherit;
+ font-weight: inherit;
+ line-height: inherit;
+ font-size-adjust: inherit;
+ font-stretch: inherit;
+ font-feature-settings: inherit;
+ font-language-override: inherit;
+ font-kerning: inherit;
+ font-synthesis: inherit;
+ font-variant: inherit;
+ font-size: 100%;
+ vertical-align: baseline;
+}

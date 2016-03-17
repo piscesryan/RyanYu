@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+       default-autowire="byType">
+
+    <!-- 以静态变量保存ApplicationContext -->
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <value>classpath:db.properties</value>
+        </property>
+    </bean>
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="wlDataSource"/>
+	</bean>
+	<bean id="toolSpring" class="com.bby.ants.util.ToolSpring"></bean> 
+    <context:annotation-config />
+    <context:component-scan base-package="com.bby.ants" />
+
+
+    <import resource="classpath*:resources/com/bby/ants/facade/my-service-facade.xml" />
+
+    <import resource="classpath:resources/com/bby/ants/core/dataSource.xml" />
+</beans>

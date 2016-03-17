@@ -1,0 +1,14 @@
+﻿ant下resources.com.bby.ants.core包下ants-services.xml文件：
+
+1、对数据库中所有的表分别配置了Service。
+
+2、针对网站5个条目（告警管理、配置、查询中心、数据处理、系统日志）分别配置了5个Service（AlarmManageService、ConfigurationService、QueryCenterService、DataProcessService、SystemLogService）。
+
+3、完成情况          基本     基本   少数      少数       基本
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+ant下test.com.bby.ants包下TestService.java文件：
+1、用于测试Service方法。
+2、由于后面对Service代码进行了更改，但测试方法里用的是老的Service代码，因此有的测试方法报错。但整个项目可以正常运行。
+3、有部分Service代码没有进行测试

@@ -1,0 +1,430 @@
+@charset "utf-8";
+/* CSS Document */
+* {margin:0;padding:0;}
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, button, input, textarea, th, td {
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+body {
+	font:normal 14px/18px Calibri,Arial, "宋体";
+	color:#333;
+	+overflow-x:hidden; 
+	 overflow-y:auto; 
+}
+ol, ul, li {
+	padding:0;
+	margin:0;
+	list-style-type:none;
+}
+img {
+	border:0;
+}
+.clear {
+	clear:both;
+	font-size:0;
+	line-height:0
+}
+a:link, a:visited, a:active {
+	text-decoration:none;
+}
+a {
+	/*font-family: "微软雅黑"; */
+	border:0;
+	border:none;
+}
+
+
+/*--content--*/
+#wrap {
+	width:100%;
+	padding:0;
+	margin:0;
+	font:12px Calibri, Arial, '宋体';
+}
+
+
+
+/*************** 头部导航 开始 ***************/
+.maintop {
+	width:100%;
+	height:22px;
+	padding:0;
+}
+.top {
+	width:980px;
+	height:12px;
+	margin:0 auto;
+	padding:0;
+	padding:8px 0 2px 0;
+	clear:both;
+}
+.top_right {
+	float:right;
+	color:#727171;
+	font-family:"宋体", arial;
+	font-size:12px;
+	line-height:12px;
+	width:274px;
+}
+.top_right ul {
+	padding:0px 0 0 0;
+}
+.top_right ul li {
+	border-left:1px solid #727171;
+	padding:0 8px 0 10px;
+	line-height:12px;
+	float:left;
+	margin:0 4px 0 0;
+}
+/***************  头部导航 结束 ***************/
+/***************  语言导航 开始 ***************/
+.top_right ul li a {
+	text-decoration:none;
+	line-height:12px;
+	color:#727171;
+	
+}
+.top_right ul li.language {
+	display:inline-block;
+	float:left;
+	border:none;
+	line-height:12px;
+	width:115px;
+	z-index:410;
+}
+.top_right ul li.language a{
+	border:1px solid #fff;
+	display:block;
+	padding:5px 15px 0 4px;
+	height:18px;
+	position:relative;
+	top:-5px;
+	z-index:800;
+}
+
+.top_right ul li.nav_narrow_up a{
+	background:url(images/xiala1.jpg) 98px 8px no-repeat;
+	border:1px solid #d3d4d5;
+	border-bottom:1px solid #fff;
+	
+	/*border:#d3d4d5 1px solid;
+	-moz-box-shadow: 1px 1px 3px #8d9499; -webkit-box-shadow: 2px 2px 5px #8d9499;
+    box-shadow: 2px 2px 2px #8d9499; */
+}
+li.nav_narrow_down a{
+	background:url(images/xiala.jpg) 98px 8px no-repeat;
+	
+}
+.liselected{
+	border:#d3d4d5 1px solid;
+	-moz-box-shadow: 1px 1px 3px #8d9499; -webkit-box-shadow: 2px 2px 5px #8d9499;
+    box-shadow: 2px 2px 5px #8d9499;
+}
+.ul_select_lan {
+	position:absolute;
+	top:-6px;
+	background:#fff;
+	border:#d3d4d5 1px solid;
+	/*-moz-box-shadow: 1px 1px 3px #8d9499;
+	-webkit-box-shadow: 2px 2px 5px #8d9499;
+	box-shadow: 2px 2px 5px #8d9499;*/
+	display:none;
+	z-index:400;
+	left:-15px;
+	
+}
+.ul_select_lan ul {
+	display:list-item;
+	float:none;
+}
+.ul_select_lan ul li {
+	border:none;
+	width: 120px;
+	display:list-item;
+	float:none;
+	line-height:26px;
+	margin:2px;
+}
+.top_right ul .ul_select_lan ul li a {
+	width: 92px;
+	display:list-item;
+	float:none;
+    padding:0;
+	height:23px;
+	border:none;
+	line-height:12px;
+	margin:2px auto;
+	position:static;
+}
+.li_on_fouces {
+	background-color:#eee;
+}
+/***************  语言导航 结束 ***************/
+
+
+#header {
+	width:980px;
+	margin:0 auto;
+	height:60px;
+	padding:2px 0 0 15px
+}
+.expo_logo {
+	float:left;
+	padding:0 0 0 5px;
+}
+
+/************   主菜单菜单效果 开始 ***************/
+#nav {
+	width:100%;
+	min-width:980px;
+	background:url(images/header_bg.jpg) 0 0 repeat-x;
+	height:35px;
+	margin:0;
+	padding:0;
+}
+.mainnav {
+	width:980px;
+	margin:0 auto;
+	padding:0;
+	height:35px;
+	position:relative;
+}
+.mainnav form {
+	width:155px;
+	height:16px;
+	background:url(images/search_bg.jpg) 0 0 no-repeat;
+	position:absolute;
+	left:813px;
+	top:8px;
+	padding:0 0 0 10px;
+	border:none;
+}
+.mainnav form input.textbox {
+	width:130px;
+	height:16px;
+	border:none;
+	_border:1px solid #fff;
+	_border-top:none;
+	_border-bottom:none;
+	font:bold 12px/14px "宋体";
+	color:#85adcd;
+	font-weight:normal;
+	padding:0px;
+	float:left;
+	display:block;
+	outline:none;
+}
+.mainnav form input.go {
+	display:block;
+	background:url(images/top_search.jpg) 0 0 no-repeat;
+	height:16px;
+	width:20px;
+	cursor:pointer;
+	float:left;
+	border:none;
+	text-indent:-9999px;
+ *text-indent:-9999px;
+}
+.mainnav ul {
+	display:block;
+	height:35px;
+	padding:0;
+	margin:0;
+}
+.mainnav ul li {
+	 
+	display:block; 
+	 
+	float:left;
+	width:86px;
+	text-align:center;
+	margin-right:60px;
+	cursor:pointer;
+	
+}
+#nav .mainnav ul li .onselected{
+	color: #004ea2 !important; 
+	background:url(images/huadong_bg.jpg) repeat-x ;	
+}
+.mainnav ul li a {
+	display:block;
+	font-size:14px;
+	font-family: "微软雅黑", "宋体";
+	font-weight:bold;
+	color:#FFFFFF;
+	line-height:35px;
+	 
+}
+
+
+
+/************   主菜单菜单效果 结束 ***************/
+
+/************   子菜单菜单效果 开始 ***************/
+.submenu
+{
+  /*  margin: 0px 10px;*/
+    margin:0px;
+    padding:0px;
+	position:relative;	 
+	z-index: 200;
+	display:none;
+}
+.submenu h1
+{
+	font-size: 16px;
+	color: #004ea2;
+	margin: 10px 0px;
+	padding-left:20px;
+}
+.submenu h1 a{
+	font-family: "微软雅黑";
+	display:inline-block;
+	font-size: 16px;
+	color: #004ea2;
+}
+.submenu ul
+{
+	list-style: none;
+	/* margin-left: 10px; */
+}
+.submenu ul li
+{
+	list-style: none;
+}
+
+.submenu ul li a {
+	color:#727171;
+}
+	
+.submenu ul li a:hover {
+	color:#3885c5;
+}
+
+div.submenubg
+{
+	position:absolute;
+    float:left;
+	background-color: #fff;
+	background-image: url(images/tanchu_bg.jpg);
+	background-repeat: repeat-x;
+	background-position: bottom;
+/*	padding-left: 15px; */
+	padding-top: 15px;
+	padding-bottom: 25px;
+	 
+	
+}
+.submenuStyle1
+{
+	float: left;
+	/* width: 160px; */
+	font-size: 12px;
+}
+.clear{ clear:both; float:left; height:0; line-height:0;}
+.box_1
+{
+	float: left;
+	font-size: 12px;
+	padding: 0px 18px;
+	line-height: 24px;
+	/*padding-right: 30px; */
+	border-right: 1px solid #dddddd;
+	/* width:130px; */
+}
+.box_2
+{
+	float: left;
+	font-size: 12px;
+	line-height: 24px;
+	padding:0px 20px;
+	/* width:130px; */
+}
+.submenuStyle2
+{
+	float: left;
+	/* width: 160px; */
+	font-size: 12px;
+}
+.submenuBottom
+{
+	height: 28px;
+	width: 100%;
+	background-color: #06F;
+}
+/************   子菜单菜单效果 结束 ***************/
+
+#bannerImg 
+{
+  /*  float:left; */
+	overflow:hidden;
+	text-decoration:none;	
+ 	 
+	
+ 	position:relative;  
+ 
+/*	margin:0 auto; */
+}
+
+#footer {
+	margin-top:15px;
+	background-color:#eee;
+	width:100%;
+	height:44px;
+	padding:0;
+	clear:both;
+}
+.footer_main {
+	margin: 0px auto; height:44px; line-height:44px; width: 980px; color: #333; font-family: "宋体";
+}
+
+.footer_main a:link {
+	text-decoration: none;
+	color: #333;
+}
+.footer_main a:visited {
+	text-decoration: none;
+	color: #333;
+}
+.footer_main a:hover {
+	text-decoration: none;
+	color: #3885c5;
+}
+.footer_main a:active {
+	text-decoration: none;
+	color: #333;
+}
+.footer_main img{vertical-align:middle;border:medium none;box-shadow:none;}
+
+ 
+
+#wrap .hdlink a:hover
+{
+	color:#3885c5;
+	
+}
+
+.right_icss_text_span1 {
+	width:95%;
+	float:left;
+	text-align:justify;
+	text-justify:inter-ideograph;
+/*	line-height:18px; */
+	font-size: 14px;
+	padding:6px 0 0 0px;
+   
+}
+.right_icss_text_span1 a{
+	text-decoration: underline;
+	
+}
+.right_icss_text_span1 a:hover {	 
+	color:#666;
+}
+#wrap .icss_text_liebiao_S1home1 A:hover
+{
+	color:#666;
+}

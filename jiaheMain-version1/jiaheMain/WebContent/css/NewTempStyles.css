@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+/*模板样式替换*/
+.img_frame{border: 1px solid #CDCDCD;position: relative;}
+.small_frame .bottom_frame{padding-left:8px;}
+.small_frame .bottom_frame li{width: 40px; height:40px;border: 1px solid #CDCDCD;padding:2px; margin:0; margin-right:9px;}
+.small_frame .bottom_frame li img{ width:40px; height:40px;}
+/*.small_frame .bottom_frame li.index {border: 1px solid #CDCDCD;padding:2px;width:40px; height:40px;}*/
+.small_frame .bottom_frame li.index img{border: 1px solid #CDCDCD; width:38px; height:38px;}
+
+.xiaoshou_right {width: 665px;margin-top: -8px;background:#FFF;}
+.xiaoshou_right h1,.mainRight .titleBox{border:none;border-bottom: 1px solid #E2E6E7;margin-bottom:10px; float:left;width:100%;}
+.xiaoshou_right h1 span{width:100;display:block;vertical-align: middle;}
+.xiaoshou_right h1 #articleshorttitle,.mainRight .titleBox .mainTitle{color: #42465E;font-size: 20px;line-height: 36px;font-family: "微软雅黑";font-weight: normal;float:left;width:100%;word-wrap: break-word; break-word: break-all;max-height:108px;overflow:hidden;}
+.xiaoshou_right h1 span.subtitle,.mainRight .titleBox .subTitle{color: #42465E;font-size: 20px;line-height: 36px;font-family: "微软雅黑";font-weight: normal;padding-left:0;float:left;width:100%;max-height:36px;overflow:hidden;}
+.xiaoshou_right h1 span.PromotWord,.mainRight .titleBox .noteTitle{color: #D00F20;font-size: 14px;line-height: 36px;font-family: "微软雅黑";font-weight: normal;padding-left:0;float:left;width:100%;max-height:36px;overflow:hidden;}
+
+.xiaoshou_right .xiaoshou_jiage{padding-top:0; width:100%; float:left;}
+
+.xiaoshou_right .xiaoshou_jiage span {font-size:12px;margin-right:0;line-height: 24px;vertical-align: middle;float:left;}
+.xiaoshou_right .xiaoshou_jiage span.fontRed{color: #D00F20;}
+.xiaoshou_right .xiaoshou_jiage span.xiaoshou_price{width: 62px; font-size: 12px;margin-right: 0;}
+.xiaoshou_right .xiaoshou_jiage span.priceNote{margin-left: 5px;}
+.xiaoshou_right .xiaoshou_jiage span.priceNote span{float:none;line-height: 5px;}
+.xiaoshou_right .xiaoshou_jiage #mall_price,.mainRight .mainContentinfo ul li span.fontSizeRed{ color: #D00F20;font-size: 20px;font-weight: bold;margin-right: 10px;}
+.xiaoshou_right .xiaoshou_jiage #largess{ padding-bottom:5px;}
+
+.xiaoshou_right .xiaoshou_jiage .xiaoshou_zp  p{ width:auto;float:left;line-height: 24px;vertical-align: middle;}
+.xiaoshou_right .xiaoshou_jiage .xiaoshou_zp  p a{color: #3366CC; cursor: pointer; margin-right:10px;}
+.xiaoshou_right .xiaoshou_jiage #youhuiPrice_number{color: #D00F20;}
+.xiaoshou_right .xiaoshou_jiage .switchingprovincesBtn a{color:#3366CC;}
+.xiaoshou_right .xiaoshou_jiage .switchingprovincesBtn .provincesList li.letterTitle a{color: #a0c149;font-family: "新宋体";}
+.xiaoshou_right .xiaoshou_jiage .switchingprovincesBtn .provincesList a{color: #9A9A9A;}
+.xiaoshou_right .xiaoshou_jiage .zpdiv{ float: left; width: 580px;line-height:24px;color:#005aa0;}
+.xiaoshou_right .xiaoshou_jiage .zpdiv a{ height:24px; line-height:24px;}
+.xiaoshou_right .xiaoshou_jiage em{color:#005AA0; height:24px; line-height:24px;}
+div.middleLine{margin-top: 5px; border-top: 1px solid  #E5E5E5; margin-bottom: 5px; width: 100%; float: left;clear:both;height:0;}
+
+#index_biz dt {width: auto;}
+.menu{ display:block;}
+.main_div {margin: 0 auto;text-align:left;width: 1200px;}
+.xiaoshou_right{ width:645px;}
+.xiaoshouR {width: 760px;}
+.main_div p {text-align: left;}
+.foot p{text-align: center;border-top:none;}
+.foot{border-top:none;}
+.position { padding-left:0;}
+.myaccount{width:95px;}
+div.lzdcon{height: auto;margin: 5px auto 0;width:1200px;float:none;}
+.con_left{border:1px solid #CBD6D8;padding:0 1px;background: url("/dqmh/personCustom/static/images/leftbg.jpg") no-repeat}
+.clear{clear:both;height:0;overflow:hidden;line-height: normal;}
+.con_right img,.con_right input{ width:100%;}
+.soucang {left: 273px;}
+.main_div {overflow:visible;clear: both;}
+
+.xiaoshou_right div,.xiaoshou_right  span,.xiaoshou_right  iframe,.xiaoshou_right  h1,.xiaoshou_right  h2,.xiaoshou_right  h3,.xiaoshou_right  h4,.xiaoshou_right  h5,.xiaoshou_right  h6,.xiaoshou_right  p,.xiaoshou_right  blockquote,.xiaoshou_right  pre,.xiaoshou_right  a,.xiaoshou_right  abbr,.xiaoshou_right  address,.xiaoshou_right  em,.xiaoshou_right  font,.xiaoshou_right  img,.xiaoshou_right  strong,.xiaoshou_right  tt,.xiaoshou_right  dl, dt, dd, ol, ul, li,.xiaoshou_right  form, label,.xiaoshou_right  table,.xiaoshou_right  tbody,.xiaoshou_right  tfoot,.xiaoshou_right  thead,.xiaoshou_right  tr,.xiaoshou_right  th,.xiaoshou_right  td {font-size:12px;font-family: 宋体;}
+
+/*裸终端样式替换*/
+
+.mainRight .mainContentinfo{ float:left;}
+.mainRight .mainContentinfo ul{padding:0;border:none;float:left;widht:100%;}
+.mainRight .mainContentinfo ul li{width:640px;float:left;}
+.mainRight .mainContentinfo ul li label{line-height:24px;}
+.mainRight .mainContentinfo ul li span{line-height:24px;}
+.mainRight .mainContentinfo ul li span.xiaoshou_price{width:60px;font-size:12px;}
+.mainRight .mainContentinfo ul li div.zpdiv{float:left;width:580px;}
+div.cdma_type_Box{margin-top:5px;float:left;width:100%;}
+div.cdma_type_ant{width:100%; float:left;margin:0;position: static;}
+div.cdma_type_ant span{width:60px;line-height:22px;}
+div.cdma_type_ant div.specRightPart{padding-bottom:0px;width:500px;}
+div.cdma_type_ant a{height:20px;line-height:20px;margin-left:0;margin-right:8px;margin-bottom:10px;}
+div.cdma_type_ant font{height:20px; line-height:20px;}
+input.quantity_ant{ margin-left:0;}
+div.c_right{ margin-top:0;margin-right:0;}
+div.buy_ant{float:left;width:100%;height:auto;margin-top:0px;}
+/*关联样式替换*/
+.roll_tit{padding-bottom:0;border-bottom:none;}
+.rollroll_img_prod .Cont{ padding-bottom:10px;}
+.rollroll_img_prod .Cont .pic_img span{width:97%;height:54px;overflow:hidden;}
+.radiobtnlable input{float:left;margin-top:5px;*margin-top:0px;}
+.contractsBuyBox .contractsBuyItem .dropdown h4 span{color:#585858;}
+
+.contractsBuyBox .contractsBuyItem .contract_phoneBill li a span{white-space:normal;*white-space:pre; float:Left;}
+/*.contractsBuyBox .contractsBuyItem .contract_phoneBill li a{ float:left; display:block;}*/
+
+/* .xiaoshou_right div.levelMesClass,#levelMes{ clear:both;margin-left:62px;background:#e9e9e9;padding:10px; width:425px;line-height:22px;padding:5px 5px 5px 10px; color:#42465e;font-family:"微软雅黑";} */
+.contractsBuyBox .contractsBuyItem label {font-family: "Times New Roman","宋体",Simsun;white-space: pre;}
+.xiaoshou_right .xiaoshou_jiage span.xiaoshou_price{font-family:"Times New Roman","宋体", Simsun;text-align:justify;text-justify:distribute-all-lines;text-align-last:justify;-moz-text-align-last:justify;-webkit-text-align-last:justify;}

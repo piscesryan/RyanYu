@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+ 
+ <listener>
+        <listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>
+    </listener>
+    
+    <filter>
+        <filter-name>PrimeFaces FileUpload Filter</filter-name>
+        <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PrimeFaces FileUpload Filter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
+ 
+  <display-name>JSF - PrimeFaces with JAAS Authentication in Tomcat Example Project</display-name>
+ 
+ 
+ 
+  <listener>
+    <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>  
+            classpath*:wl-applicationContext.xml
+        </param-value>
+  </context-param>
+  
+    
+    
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <context-param>
+    <description>Defines which packages to scan for beans, separated by commas. Necessary for when using tomcat7:run.</description>
+    <param-name>org.apache.myfaces.annotation.SCAN_PACKAGES</param-name>
+    <param-value>io.github.acdcjunior</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
+    <param-value>0</param-value>
+  </context-param>
+  <context-param>
+    <description>
+            Set the project stage to &quot;Development&quot;, &quot;UnitTest&quot;, &quot;SystemTest&quot;, or &quot;Production&quot;.
+            An optional parameter that makes troubleshooting errors much easier.
+            You should remove this context parameter before deploying to production!
+        </description>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Production</param-value>
+  </context-param>
+  <context-param>
+    <param-name>com.sun.faces.numberOfViewsInSession</param-name>
+    <param-value>80</param-value>
+  </context-param>
+  <context-param>
+    <param-name>com.sun.faces.serializeServerState</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+    <param-value>server</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Production</param-value>
+  </context-param>
+  <context-param>
+    <param-name>primefaces.THEME</param-name>
+    <param-value>bootstrap</param-value>
+  </context-param>
+  <welcome-file-list>
+    <welcome-file>login/login.xhtml</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>facesServlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>facesServlet</servlet-name>
+    <url-pattern>*.xhtml</url-pattern>
+  </servlet-mapping>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Views only available when logged in as ADMIN</web-resource-name>
+      <url-pattern>/admin/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Views only available when logged in as USER</web-resource-name>
+      <url-pattern>/user/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>user</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/authentication/login.xhtml</form-login-page>
+      <form-error-page>/authentication/login.xhtml</form-error-page>
+    </form-login-config>
+  </login-config>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/WEB-INF/error-pages/forbidden.xhtml</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/error-pages/notFound.xhtml</location>
+  </error-page>
+  <security-role>
+    <role-name>admin</role-name>
+  </security-role>
+  <security-role>
+    <role-name>user</role-name>
+  </security-role>
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SecurityCodeServlet</servlet-name>
+    <servlet-class>register.SecurityCodeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>
+	  	</description>
+    <display-name>CheckEmailServlet</display-name>
+    <servlet-name>CheckEmailServlet</servlet-name>
+    <servlet-class>register.CheckEmailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SecurityCodeServlet</servlet-name>
+    <url-pattern>/SecurityCode</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckEmailServlet</servlet-name>
+    <url-pattern>/CheckEmailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.bby.ants.action.LoginServlet</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>RandCodeImage</servlet-name>
+    <servlet-class>com.bby.ants.servlet.RandCodeImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RandCodeImage</servlet-name>
+    <url-pattern>/randCodeImage</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <error-page>
+    <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+    <location>/error/viewExpired.xhtml</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error/404.xhtml</location>
+  </error-page>
+  
+  
+</web-app>

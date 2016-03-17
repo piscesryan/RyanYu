@@ -1,0 +1,266 @@
+.hr {
+    border-top: 1px solid #e3e3e3;
+    display: block;
+    font-size: 0;
+    height: 0;
+    margin: 12px 0;
+    overflow: hidden;
+}
+.hr-double {
+    border-bottom: 1px solid #e3e3e3;
+    border-top: 1px solid #e3e3e3;
+    height: 3px;
+}
+.hr.dotted, .hr-dotted {
+    border-top-style: dotted;
+}
+.hr-double.dotted {
+    border-bottom-style: dotted;
+}
+.hr-32, .hr32 {
+    margin: 32px 0;
+}
+.hr-30, .hr30 {
+    margin: 30px 0;
+}
+.hr-28, .hr28 {
+    margin: 28px 0;
+}
+.hr-26, .hr26 {
+    margin: 26px 0;
+}
+.hr-24, .hr24 {
+    margin: 24px 0;
+}
+.hr-22, .hr22 {
+    margin: 22px 0;
+}
+.hr-20, .hr20 {
+    margin: 20px 0;
+}
+.hr-18, .hr18 {
+    margin: 18px 0;
+}
+.hr-16, .hr16 {
+    margin: 16px 0;
+}
+.hr-14, .hr14 {
+    margin: 14px 0;
+}
+.hr-12, .hr12 {
+    margin: 12px 0;
+}
+.hr-10, .hr10 {
+    margin: 10px 0;
+}
+.hr-8, .hr8 {
+    margin: 8px 0;
+}
+.hr-6, .hr6 {
+    margin: 6px 0;
+}
+.hr-4, .hr4 {
+    margin: 4px 0;
+}
+.hr-2, .hr2 {
+    margin: 2px 0;
+}
+.space {
+    margin: 12px 0;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-xs, .vspace-sm, .vspace-md, .vspace-lg {
+    display: none;
+    margin: 12px 0;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-32 {
+    margin: 32px 0 31px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-32, .vspace-xs-32, .vspace-sm-32, .vspace-md-32, .vspace-lg-32 {
+    margin: 32px 0 31px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-30 {
+    margin: 30px 0 29px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-30, .vspace-xs-30, .vspace-sm-30, .vspace-md-30, .vspace-lg-30 {
+    margin: 30px 0 29px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-28 {
+    margin: 28px 0 27px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-28, .vspace-xs-28, .vspace-sm-28, .vspace-md-28, .vspace-lg-28 {
+    margin: 28px 0 27px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-26 {
+    margin: 26px 0 25px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-26, .vspace-xs-26, .vspace-sm-26, .vspace-md-26, .vspace-lg-26 {
+    margin: 26px 0 25px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-24 {
+    margin: 24px 0 23px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-24, .vspace-xs-24, .vspace-sm-24, .vspace-md-24, .vspace-lg-24 {
+    margin: 24px 0 23px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-22 {
+    margin: 22px 0 21px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-22, .vspace-xs-22, .vspace-sm-22, .vspace-md-22, .vspace-lg-22 {
+    margin: 22px 0 21px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-20 {
+    margin: 20px 0 19px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-20, .vspace-xs-20, .vspace-sm-20, .vspace-md-20, .vspace-lg-20 {
+    margin: 20px 0 19px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-18 {
+    margin: 18px 0 17px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-18, .vspace-xs-18, .vspace-sm-18, .vspace-md-18, .vspace-lg-18 {
+    margin: 18px 0 17px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-16 {
+    margin: 16px 0 15px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-16, .vspace-xs-16, .vspace-sm-16, .vspace-md-16, .vspace-lg-16 {
+    margin: 16px 0 15px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-14 {
+    margin: 14px 0 13px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-14, .vspace-xs-14, .vspace-sm-14, .vspace-md-14, .vspace-lg-14 {
+    margin: 14px 0 13px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-12 {
+    margin: 12px 0 11px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-12, .vspace-xs-12, .vspace-sm-12, .vspace-md-12, .vspace-lg-12 {
+    margin: 12px 0 11px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-10 {
+    margin: 10px 0 9px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-10, .vspace-xs-10, .vspace-sm-10, .vspace-md-10, .vspace-lg-10 {
+    margin: 10px 0 9px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-8 {
+    margin: 8px 0 7px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-8, .vspace-xs-8, .vspace-sm-8, .vspace-md-8, .vspace-lg-8 {
+    margin: 8px 0 7px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-6 {
+    margin: 6px 0 5px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-6, .vspace-xs-6, .vspace-sm-6, .vspace-md-6, .vspace-lg-6 {
+    margin: 6px 0 5px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-4 {
+    margin: 4px 0 3px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.vspace-4, .vspace-xs-4, .vspace-sm-4, .vspace-md-4, .vspace-lg-4 {
+    margin: 4px 0 3px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}
+.space-2 {
+    margin: 2px 0 1px;
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+}

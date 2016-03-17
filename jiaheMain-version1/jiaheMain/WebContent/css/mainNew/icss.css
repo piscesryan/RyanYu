@@ -1,0 +1,197 @@
+@charset "utf-8";
+/* CSS Document */
+.icss_2_0_PSG_banner {
+	width:100%;
+	text-align:center;/*height:113px; */
+}
+.icss_2_0_PSG_box1 {
+	width:1000px;
+	float:left;
+}
+.icss_2_0_PSG_leftbox {
+	width:100%;
+	float:left;
+	padding-top:20px;
+}
+.icss_2_0_PSG_leftbox_image {
+	width:258px;
+	height:172px;
+	float:left;
+	padding-top:26px;
+}
+.icss_2_0_PSG_bankuai {
+	clear:both;
+	width:1200px;
+	margin:0 auto;
+	height:800px;
+}
+.icss_2_0_PSG_leftbox_right {
+	width: 720px;
+	float:left;
+	margin:0 0 0 15px;
+}
+.icss_2_0_PSG_leftbox_right_top {
+	width:100%;
+	float:left;
+	border-bottom:3px #004ea2 solid;
+	padding:6px 0px;
+	font-size: 18px;
+	font-family:"宋体";
+	font-weight:bold;
+}
+.icss_2_0_PSG_leftbox_right_top a
+{
+	color:#666;
+}
+
+.icss_2_0_PSG_leftbox_right_top a:hover
+{
+	color:#3885c5;
+}
+.icss_text_span {
+	width:100%;
+	float:left;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:21px;
+	font-size: 15px; 
+	padding:6px 0 10px 0;
+}
+.icss_text_span a:link,
+.icss_text_span a:visited,
+.icss_text_span a:active{
+	font:12px/21px normal Calibri, Arial, "宋体"!important;
+	color:#3885c5 !important;
+	text-decoration: none !important;
+	 
+}
+.icss_text_span a:hover{
+	color: #333 !important;
+	text-decoration: none !important;
+}
+
+
+.icss_text_liebiao {
+    width: 100%;
+    float: left;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+    
+    
+}
+
+.icss_text_liebiao a:link {
+	color: #3885c5;
+	text-decoration: none;
+}
+.icss_text_liebiao a:visited {
+	text-decoration: none;
+	color: #3885c5;
+}
+.icss_text_liebiao a:hover {
+	/* text-decoration: underline; */
+	color: #333;
+}
+.icss_text_liebiao a:active {
+	text-decoration: none;
+	color: #3885c5;
+}
+.icss_text_jiantou {
+	width:100%;
+	float:left;
+	text-align:right;
+	height:22px;
+	padding-top:10px;
+}
+.icss_2_0_PSG_box2 {
+	width:210px;
+	float:left;
+	padding:20px 0 0 0px;
+	_padding-left:17px;
+}
+.icss_2_0_PSG_box2_home {
+	width:210px;
+	float:left;
+	padding:46px 0 0 20px;
+}
+.icss_2_0_PSG_rightbox_right_top {
+	width:210px;
+	float:left;
+	padding:6px 0px;
+	background-color:#eeeeee;
+}
+.icss_2_0_PSG__font01 {
+	font-size:14px;
+	font-family:"宋体","微软雅黑";
+	font-weight:bold;
+	padding-left:13px;
+}
+.icss_2_0_PSG_rightbox_right_bottom {
+	width:188px;
+	float:left;
+	padding:10px;
+	padding-top:0px;
+	border: 1px solid #eeeeee;
+	height: 380px;
+}
+.icss_2_0_PSG_right_image {
+	/*width:70px; */
+	float:left;
+}
+.icss_text_span1 {
+	width:95%;
+	float:left;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:18px;
+	font-size:12px;
+	padding:6px 0 0 10px;
+	color:#898989;
+}
+.icss_text_span1 a {
+	text-justify:inter-ideograph;
+	line-height:18px;
+	font-size:12px;
+	padding:6px 0 0 0px;
+	color:#3885c5;
+}
+
+.icss_text_span1 a:hover {	 
+	color:#333;
+}
+
+.dot{
+	background:url(../images/icss_2_0_PSG/dian.gif) no-repeat 2px 13px;
+}
+
+.icss_2_0_PSG_rightbox_right_bottom_imagebox {
+	width:100%;
+	float:left;
+	padding-top:10px;
+}
+.icss_2_0_PSG_footer_main {
+	height:44px;
+	padding:0;
+	margin:0 auto;
+	width:1000px;
+	padding:15px 0 0 40px;
+	color:#333333;
+}
+.icss_2_0_PSG_footer {
+	width:100%;
+	height:44px;
+	clear:both;
+	float:left;
+	margin-top:15px;
+	background-color:#eeeeee;
+}
+
+.list{
+	margin-left:16px;
+}
+.list li
+{
+	
+	list-style:outside decimal;
+}

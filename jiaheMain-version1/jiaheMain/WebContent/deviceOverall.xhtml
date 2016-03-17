@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+	<meta http-equiv="X-UA-Compatible" content="IE=7" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-Control" content="no-transform " />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-store, must-revalidate" />
+	<meta http-equiv="expires" content="0" />
+	<title>设备总况-丙机房发射机故障预警系统</title>
+
+	<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+	<script src="js/common/common.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			var nvs=document.getElementById("left_nav").getElementsByTagName("DIV");
+			for(var i=0; i &lt; nvs.length;i++){
+				var nv=nvs[i];
+				if($(nv).children("img").attr("alt").indexOf("配置") &gt;= 0){
+					$(nv).children("img").attr("src","#{request.contextPath}/common/image/set.png");
+				}
+				if($(nv).children("img").attr("alt").indexOf("设备总况") &gt;= 0){
+					$(nv).children("img").attr("src","#{request.contextPath}/common/image/menuAct/deviceAct.png");
+				}
+				if($(nv).children("img").attr("alt").indexOf("告警管理") &gt;= 0){
+					$(nv).children("img").attr("src","#{request.contextPath}/common/image/alarmMng.png");
+				}
+				if($(nv).children("img").attr("alt").indexOf("查询中心") &gt;= 0){
+					$(nv).children("img").attr("src","#{request.contextPath}/common/image/searchCenter.png");
+				}
+				if($(nv).children("img").attr("alt").indexOf("数据处理") &gt;= 0){
+					$(nv).children("img").attr("src","#{request.contextPath}/common/image/dataDeal.png");
+				}
+				if($(nv).children("img").attr("alt").indexOf("系统日志") &gt;= 0){
+					$(nv).children("img").attr("src","#{request.contextPath}/common/image/systemLog.png");
+				}
+				if($(nv).children("img").attr("alt").indexOf("退出系统") &gt;= 0){
+					$(nv).children("img").attr("src","#{request.contextPath}/common/image/exit.png");
+				}
+			}
+		});
+	</script>
+	<style type="text/css">
+.file-box {
+	position: relative;
+}
+
+.txt {
+	height: 22px;
+	border: 1px solid #cdcdcd;
+	width: 180px;
+}
+
+.btn {
+	background-color: #FFF;
+	border: 1px solid #CDCDCD;
+	height: 24px;
+	width: 90px;
+	color: #333;
+}
+
+.ui-widget {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px !important;
+}
+
+.file {
+	position: absolute;
+	top: 0;
+	right: 80px;
+	height: 24px;
+	filter: alpha(opacity : 0);
+	opacity: 0;
+	width: 260px
+}
+</style>
+	<style type="text/css">
+.left_nav div {
+	float: left;
+	margin-left: 10px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.ui-widget-header {
+	border: none !important;
+}
+#overall > div {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+#transmit > div {
+    float: left;
+    width: 50%;
+    position: relative;
+}
+#transmit > div .tran_id {
+    position: absolute;
+    top: 20px;
+    left: 55%;
+    color: #C16689;
+	font-weight: bold;
+}
+#transmit > div .tran_name{
+	position: relative;
+	bottom: 100px;
+	font-size: 14px;
+	color: #C16689;
+	font-weight: bold;
+}
+#overall {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.status {
+    border: 2px solid #394F88;
+    height: 430px;
+    width: 120px;
+    margin: 0px auto;
+    border-radius: 8px;
+}
+.status div{
+	width: 50px;
+	height: 40px;
+	background: #2E9F09 none repeat scroll 0% 0%;
+	margin: 13px auto 0px;
+	box-shadow: 0 3px 3px #333;
+	border-radius: 8px;
+}
+.status span{
+	position: relative;
+	top: 5px;
+	color:#394F88;
+	font-weight: bold;
+}
+.gfg{
+	background: #A00807 !important;
+}
+.scg{
+	background: #C66900 !important;
+}
+.zlg{
+	background: rgb(255, 255, 0) none repeat scroll 0% 0% !important;
+}
+</style>
+
+</h:head>
+<h:body style="margin: 0px;padding: 0px;overflow: hidden;">
+	<h:form>
+		<ui:include src="common/head.xhtml">
+		</ui:include>
+
+		<div style="background: rgb(219, 234, 255) none repeat scroll 0% 0%; height: 715px;" class="mainContent">
+			<div id="overall">
+				<div>
+				<div class="status">
+				<span style="top: 10px;">CO1机状态</span>
+				<div onclick="redirect('#{request.contextPath}/monitor/rectifierCabMonitor.xhtml')" style="cursor: pointer;margin-top: 30px;" class="zlg"></div>
+				<span>整流柜</span>
+				<div onclick="redirect('#{request.contextPath}/monitor/powerCabMonitor.xhtml')" style="cursor: pointer;" class="gfg"></div>
+				<span>功放柜</span>
+				<div onclick="redirect('#{request.contextPath}/monitor/outputCabMonitor.xhtml')" style="cursor: pointer;" class="scg"></div>
+				<span>输出柜</span>
+				<div onclick="redirect('#{request.contextPath}/monitor/feedTubeMonitor.xhtml')" style="cursor: pointer;" class="kt"></div>
+				<span>馈  &nbsp;筒</span>
+				<div onclick="redirect('#{request.contextPath}/monitor/transformerMonitor.xhtml')" style="cursor: pointer;" class="byq"></div>
+				<span>变压器</span>
+				</div>
+				</div>
+				<div id="transmit" style="width: 50%;">
+					<div style=""><div style="width: 180px; margin: 0px auto;">
+						<span class="tran_id">302</span>
+						<img src="Image/device/transmitter.png" alt="发射机"/>
+						<span class="tran_name">CO1 DX200 HARRIS</span>
+	</div></div>
+					<div style=""><div style="width: 180px; margin: 0px auto;">
+						<span class="tran_id">301</span>
+						<img src="Image/device/transmitter.png" alt="发射机"/>
+						<span class="tran_name">CO2 DX200 HARRIS</span>
+	</div></div>
+				</div>
+				<div>
+				<div class="status">
+				<span style="top: 10px;">CO2机状态</span>
+				<div onclick="redirect('#{request.contextPath}/monitor/rectifierCabMonitor.xhtml')" style="cursor: pointer;margin-top: 30px;" class="zlg"></div>
+				<span>整流柜</span>
+				<div onclick="redirect('#{request.contextPath}/monitor/powerCabMonitor.xhtml')" style="cursor: pointer;" class="gfg"></div>
+				<span>功放柜</span>
+				<div onclick="redirect('#{request.contextPath}/monitor/outputCabMonitor.xhtml')" style="cursor: pointer;" class="scg"></div>
+				<span>输出柜</span>
+				<div onclick="redirect('#{request.contextPath}/monitor/feedTubeMonitor.xhtml')" style="cursor: pointer;" class="kt"></div>
+				<span>馈  &nbsp;筒</span>
+				<div onclick="redirect('#{request.contextPath}/monitor/transformerMonitor.xhtml')" style="cursor: pointer;" class="byq"></div>
+				<span>变压器</span>
+				</div>
+				</div>
+			</div>
+		</div>
+		<ui:include src="common/footer.xhtml">
+		</ui:include>
+	</h:form>
+</h:body>
+</html>

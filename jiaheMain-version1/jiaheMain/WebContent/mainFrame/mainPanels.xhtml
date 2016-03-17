@@ -1,0 +1,599 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+
+	<h:head>
+		<title>丙机房发射机故障预警系统</title>
+		<meta name="Keywords" content="" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
+		<meta http-equiv="description" content="This is my page" />
+		<script charset="utf-8" type="text/javascript">
+        $(document).ready(function(){		
+			$("div#leftId .ui-panelmenu-panel .ui-menuitem-link").children("span.ui-menuitem-icon").eq(0).css("background-image","url('../Image/menu/2.png')");
+			$("div#leftId .ui-panelmenu-panel .ui-menuitem-link").children("span.ui-menuitem-icon").eq(1).css("background-image","url('../Image/menu/3.png')");
+			$("div#leftId .ui-panelmenu-panel .ui-menuitem-link").children("span.ui-menuitem-icon").eq(2).css("background-image","url('../Image/menu/4.png')");
+			$("div#leftId .ui-panelmenu-panel .ui-menuitem-link").children("span.ui-menuitem-icon").eq(3).css("background-image","url('../Image/menu/9.png')");
+			$("div#leftId .ui-panelmenu-panel .ui-menuitem-link").children("span.ui-menuitem-icon").eq(4).css("background-image","url('../Image/menu/5.png')");
+			$("div#leftId .ui-panelmenu-panel .ui-menuitem-link").children("span.ui-menuitem-icon").eq(5).css("background-image","url('../Image/menu/6.png')");
+			$("div#leftId .ui-panelmenu-panel .ui-menuitem-link").children("span.ui-menuitem-icon").eq(6).css("background-image","url('../Image/menu/7.png')");
+			$("div#leftId .ui-panelmenu-panel .ui-menuitem-link").children("span.ui-menuitem-icon").eq(7).css("background-image","url('../Image/menu/8.png')");
+			$("div#leftId .ui-panelmenu-panel .ui-menuitem-link").children("span.ui-menuitem-icon").eq(8).css("background-image","url('../Image/menu/10.png')");
+			$("div#leftId .ui-panelmenu-panel div").css("display","block");
+			$("div#leftId .ui-panelmenu-panel div").removeClass("ui-helper-hidden");
+			window.onresize = debounce(clickHide, 100, true) 
+        }); 
+        
+        var debounce = function (func, threshold, execAsap) {
+        	var timeout;
+        	return function debounced () {
+        	var obj = this, args = arguments;
+        	function delayed () {
+        	if (!execAsap)
+        	func.apply(obj, args);
+        	timeout = null;
+        	};
+        	if (timeout)
+        	clearTimeout(timeout);
+        	else if (execAsap)
+        	func.apply(obj, args);
+        	timeout = setTimeout(delayed, threshold || 100);
+        	};
+        	} 
+
+       </script>
+
+		<style type="text/css">
+#MENUSIDE {
+	float: left;
+	background-color: #FFF;
+	border-right: 1px solid #FFF;
+	width: 300px;
+	position: fixed;
+	overflow: visible;
+	z-index: 2;
+}
+
+.ui-panelmenu .ui-icon {
+	margin-right: 10px;
+}
+
+#MENUSIDEindent {
+	width: 100%;
+	height: auto;
+}
+
+#CONTENTSIDE {
+	width: auto;
+	overflow: hidden;
+	z-index: 1;
+	background-color: #EFF3F6;
+}
+
+#CONTENTSIDEindent {
+	width: 100%;
+	height: auto;
+}
+
+.Implementation {
+	background-color: #DFE4E6;
+}
+
+.ContentSideSections {
+	display: block;
+}
+
+#PFTopLinksCover .ui-widget-content {
+	border: 0px solid #DDD;
+	color: #333;
+	background: #EDEDED none repeat scroll 0% 0%;
+}
+
+#PFTopLinksCover {
+	background-color: #FFF;
+}
+
+.ui-widget {
+	font-family: "Microsoft YaHei", "Arial", "Verdana", "Tahoma" !important;
+	font-size: 14px !important;
+}
+
+.ui-widget-content {
+	border: 0px solid #DDD;
+	background: #F5F5F5 none repeat scroll 0% 0%;
+	color: #009077;
+	!
+	important;
+}
+
+#footer { /* position:absolute;bottom:5px; */
+	
+}
+
+.ui-button-text-icon-left .ui-button-text {
+	padding: 0.3em 0.1em 0.3em 1em;
+	padding-top: 0.3em;
+	padding-right: 1em;
+	padding-bottom: 0.3em;
+	padding-left: 2.1em;
+	font-size: 15px !important;
+}
+
+#left .ui-widget-content {
+	border: 0px solid #DDD;
+	background: #22282E none repeat scroll 0% 0%;
+	color: #009077;
+	overflow-x: hidden !important;
+}
+
+.ui-panelmenu-panel .ui-state-default .ui-icon {
+	background: transparent url("../Images/menu/1.png") no-repeat scroll 0%
+		0% !important;
+	margin-top: 1px;
+}
+
+.ui-icon-triangle-1-e {
+	background-position: 0px;
+}
+</style>
+
+		<style type="text/css">
+.code {
+	font-family: Arial;
+	font-style: italic;
+	color: #000;
+	border: 0;
+	padding: 2px 3px;
+	letter-spacing: 3px;
+	font-weight: bolder;
+}
+
+.unchanged {
+	border: 0;
+}
+
+.ui-multiselectlistbox .ui-multiselectlistbox-listcontainer {
+	float: left;
+	margin-right: 4px;
+	width: 300px;
+	height: 500px;
+	overflow: visible;
+	z-index: 2;
+}
+
+.ui-menu.ui-widget li.ui-corner-all, .ui-menu.ui-widget a.ui-corner-all
+	{
+	border-radius: 0px;
+	height: 40px;
+	margin-bottom: 5px !important;
+}
+
+.ui-menu .ui-menu-parent .ui-icon-triangle-1-e, .ui-menu .ui-menu-parent .ui-icon-triangle-1-s,
+	.ui-menubar .ui-menu-child .ui-icon-triangle-1-s, .ui-menubar .ui-menu-child .ui-icon-triangle-1-s
+	{
+	float: right;
+	margin-right: 5px;
+}
+
+.ui-menu.ui-widget .ui-menuitem-link .ui-menuitem-icon {
+	margin-left: 0.3em;
+	margin-right: 0.2em !important;
+}
+
+.ui-menu.ui-widget li>.ui-menuitem-link {
+	padding: 0px 0px !important;
+	width: 100%;
+	/* border-width: 1px 0px; */
+}
+
+.ui-clock {
+	font-size: 12px !important;
+}
+
+.ui-menu.ui-widget {
+	min-width: 160px;
+	padding: 5px 0px;
+	background-color: #FFF;
+	border: 0px solid #FFF !important;
+	border-radius: 6px;
+	background-clip: padding-box;
+}
+
+.ui-widget-header {
+	/* border: 1px solid #EEE; */
+	color: #FFF !important;
+	font-weight: normal !important;
+	height: 41px;
+	background: #2A3B4E none repeat scroll 0% 0%;
+}
+
+#j_idt5.ui-notificationbar.ui-widget {
+	top: 42px !important;
+	width: 300px;
+	left: 0px;
+	position: absolute;
+	height: 950px;
+}
+
+.ui-panelgrid .ui-panelgrid-cell {
+	border-width: 1px;
+	border-style: none;
+	border-color: inherit;
+	padding: 4px 10px;
+}
+
+#left {
+	position: absolute;
+	margin: 0px;
+	right: auto;
+	z-index: 0;
+	left: 0px;
+	width: 305px !important;
+	display: block;
+	visibility: visible;
+	top: 56px;
+	bottom: 66px;
+	height: 391px;
+	width: 250px !important;
+}
+
+.ui-panelgrid {
+	border-collapse: inherit !important;
+}
+
+p {
+	margin: 0px 0px 5px !important;
+}
+
+.ui-panelmenu .ui-panelmenu-content {
+	padding: 0;
+	border-top: 0px none;
+	margin-top: -2px;
+	position: relative;
+	top: 1px;
+	overflow: auto;
+}
+
+.ui-panelmenu .ui-menuitem {
+	width: 100%;
+	float: left;
+	clear: both;
+	margin: 1px 0px;
+	padding: 0px;
+	background: #22282E none repeat scroll 0% 0%;
+}
+
+.ui-panelmenu .ui-menuitem-link {
+	font-weight: 400;
+	line-height: 16px;
+	cursor: pointer;
+	color: #FFF !important;
+	padding-left: 18px !important;
+}
+
+.ui-panelmenu .ui-panelmenu-header a {
+	background-color: #293038;
+}
+
+.ui-corner-all {
+	border-radius: 0;
+}
+
+.ui-layout-unit-header-title {
+	position: relative;
+	left: 10px;
+	top: 10px;
+	font-size: 14px;
+}
+.ui-state-hover{
+	background: #987 !important;
+}
+</style>
+
+		<script>
+		 function clickHide(){
+	 			var winWidth;
+	 			if (window.innerWidth)
+					winWidth = window.innerWidth;
+				else if ((document.body) &amp;&amp; (document.body.clientWidth))
+					winWidth = document.body.clientWidth;
+	 			var left=$("#left").get(0);
+	 			if(winWidth &lt; 1400 &amp;&amp; left.style.display == 'block'){
+	 				$("#left .ui-icon-triangle-1-w").click();
+	 			}
+	 		}
+			function show() {
+				var date = new Date(); //日期对象
+				var now = "";
+				now = date.getFullYear() + "年"; //读英文就行了
+				now = now + (date.getMonth() + 1) + "月"; //取月的时候取的是当前月-1如果想取当前月+1就可以了
+				now = now + date.getDate() + "日";
+				now = now + date.getHours() + "时";
+				now = now + date.getMinutes() + "分";
+				now = now + date.getSeconds() + "秒";
+				document.getElementById("nowDiv").innerHTML = now; //div的html是now这个字符串
+				setTimeout("show()", 1000); //设置过1000毫秒就是1秒，调用show方法
+			}
+
+			function showReal() {
+
+				//js获取服务器时间和客户端时间-start  
+				//因程序执行耗费时间,所以时间并不十分准确,误差大约在2000毫秒以下  
+				var xmlHttp = false;
+				//获取服务器时间  
+				try {
+					xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+				} catch (e) {
+					try {
+						alert("3");
+						xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+					} catch (e2) {
+						xmlHttp = false;
+						alert("f");
+					}
+				}
+
+				if (!xmlHttp) {
+					xmlHttp = new XMLHttpRequest();
+				}
+
+				if (typeof XMLHttpRequest != 'undefined') {
+					xmlHttp = new XMLHttpRequest();
+				}
+
+				alert(xmlhttp);
+				xmlhttp.open("GET", "http://bjtime.cn", false);
+				xmlhttp.setRequestHeader("If-Modified-Since", "bjtime");
+				xmlhttp.send();
+				var dateStr = xmlhttp.getResponseHeader("Date");
+				var date = new Date(dateStr);
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				var date1 = date.getDate();
+				var hour = date.getHours();
+				var minutes = date.getMinutes();
+				var second = date.getSeconds();
+				var now = year + "年" + month + "月" + date1 + "日" + hour + "时"
+						+ minutes + "分" + second + "秒";
+				document.getElementById("nowDiv").innerHTML = now; //div的html是now这个字符串
+				setTimeout("showReal()", 1000); //设置过1000毫秒就是1秒，调用show方法
+
+			}
+		</script>
+
+
+		<ui:insert name="head" />
+		<h:outputStylesheet name="main/css/showcase.css" />
+		<h:outputStylesheet name="main/css/sh.css" />
+
+		<style type="text/css">
+.ui-layout-north {
+	z-index: 20 !important;
+	overflow: visible !important;;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+
+body {
+	background-color: #FFFFFF;
+}
+
+.ui-layout-unit {
+	visibility: hidden;
+	padding: 0em;
+}
+
+.ui-layout-unit .ui-layout-unit-content {
+	padding: 0em 0em;
+	border: 0px none;
+	overflow: auto;
+}
+
+#leftId .ui-state-default, .ui-widget-content .ui-state-default,
+	.ui-widget-header .ui-state-default {
+	color: #333;
+	text-shadow: 0px 1px 1px #2D252B;
+}
+
+#leftId .ui-panelmenu .ui-panelmenu-header a {
+	color: #CB0;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.ui-panelmenu .ui-menuitem-link {
+	display: block;
+	width: 92%;
+	outline: medium none;
+	text-decoration: none;
+	font-weight: 400;
+	border: 1px solid transparent;
+	float: left;
+	line-height: 16px;
+	padding: 0.3em;
+	cursor: pointer;
+	background: rgb(213, 149, 37) none repeat scroll 0% 0%;
+}
+
+.ui-layout-unit .ui-layout-unit-content {
+	padding: 0em;
+	border: 0px none;
+	overflow-x: hidden !important;
+}
+
+#bottom .ui-layout-unit-content {
+	overflow: hidden !important;
+}
+
+.ui-panel .ui-panel-content {
+	border: 0px none;
+	background: #F5F5F5 none repeat scroll 0% 0%;
+	padding: 0 !important;
+}
+
+body, div, ul, li, dl, dt, dd, table, th, tr, td, img, p, font, span, h1,
+	h2, h3 {
+	margin: 0px;
+	padding: 0px;
+	border: 0px none !important;
+	list-style: outside none none;
+	font-size: 16px;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+#top .ui-widget-content {
+	border: 1px solid #DDD;
+	background: transparent !important;
+	color: #333;
+}
+
+.fl {
+	font: 12px/1.5 "microsoft yahei" !important;
+}
+
+.fr {
+	font: 12px/1.5 "microsoft yahei" !important;
+}
+
+*, *::before, *::after {
+	box-sizing: inherit !important;
+}
+
+#centerPanel .ui-widget-content {
+	border: 0px solid #DDD;
+	background: #FFF none repeat scroll 0% 0%;
+	color: #333;
+	bottom: 0px !important;
+	overflow: hidden !important;
+}
+
+.ui-panelmenu .ui-menuitem-link {
+	display: block;
+	width: 92%;
+	outline: medium none;
+	text-decoration: none;
+	font-weight: 400;
+	border: 1px solid transparent;
+	float: left;
+	line-height: 16px;
+	padding: 0.3em;
+	cursor: pointer;
+	background: #22282E none repeat scroll 0% 0%;
+}
+
+.ui-panelmenu .ui-panelmenu-content {
+	padding: 0px;
+	border-top: 0px none;
+	margin-top: 0;
+	position: relative;
+	top: 0;
+	overflow: auto;
+}
+
+.ui-panelmenu .ui-menuitem-text {
+	float: left;
+	font-size: 14px;
+}
+
+#centerPanel .ui-layout-unit-content {
+	left: -6px !important;
+}
+
+
+.ui-panelmenu .ui-panelmenu-header a {
+	display: block;
+	padding: 0.6em 0.6em 0.6em 2.2em;
+}
+
+.ui-widget-header {
+	height: 42px\9;
+	height: 55px\0;
+}
+</style>
+
+		<script charset="utf-8" type="text/javascript">
+	function expandMenu(){
+		var menus = document.evaluate("//div[@class='ui-panelmenu-panel']/div",document,null,XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,null);
+		for(var i=0;i &lt; menus.length;i++){
+			menus[i].style.display="block";
+		}
+	}
+		function checkHeight(){
+			/* var first=window.frames["centerPage"].document.getElementById("first"); */
+			var centerFrame=document.getElementById("index_center"); 
+			var winHeight;
+			if (document.documentElement &amp;&amp; document.documentElement.clientHeight &amp;&amp; document.documentElement.clientWidth)
+			{
+				winHeight = document.documentElement.clientHeight;
+			}
+			centerFrame.height=parseInt(winHeight);
+		}
+		window.onresize = function(){
+			checkHeight();
+		}
+		
+		function initSearch(){
+			alert("init");
+		}
+		
+		</script>
+
+
+	</h:head>
+
+	<h:body onload="checkHeight(),expandMenu()">
+		<p:growl id="messages" showDetail="true" />
+
+		<p:layout fullPage="true">
+
+
+
+			<p:layoutUnit id="left" position="west" resizable="true"
+				collapsible="true" header="小蝌蚪-服务台" maxSize="200">
+				<div id="leftId">
+					<h:form style="">
+						<p:panelMenu model="#{menuModel}" onclick="initSearch()">
+						</p:panelMenu>
+					</h:form>
+				</div>
+			</p:layoutUnit>
+
+
+			<p:layoutUnit id="centerPanel" position="center"
+				style="width: 100%; height: 100%;over-flow:hidden;">
+
+				<iframe name="mainframe" frameborder="0" style="width: 100%;"
+					id="index_center" src="../用户管理.html"
+					height="700"></iframe>
+
+			</p:layoutUnit>
+
+
+
+		</p:layout>
+
+
+		<script language="javascript"
+			src="#{request.contextPath}/resources/main/js/sh.js"></script>
+		<script language="javascript">
+			SyntaxHighlighter.all();
+		</script>
+
+	</h:body>
+
+
+</f:view>
+
+
+</html>

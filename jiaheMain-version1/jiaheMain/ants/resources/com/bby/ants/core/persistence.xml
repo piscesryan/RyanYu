@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+    <bean id="wlSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="wlDataSource" />
+        <property name="typeAliasesPackage" value="com.bby.ants.entity"/>
+        <property name="mapperLocations" value="classpath*:resources/com/bby/ants/mapping/*/*.xml"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bby.ants.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.bby.ants.entity.User" >
+    <id column="Id" property="id" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="user_icon" property="userIcon" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="user_reg" property="userReg" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="sid" property="sid" jdbcType="VARCHAR" />
+    <result column="out_date" property="outDate" jdbcType="TIMESTAMP" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="logintime" property="logintime" jdbcType="TIMESTAMP" />
+    <result column="last_login_ip" property="lastLoginIp" jdbcType="VARCHAR" />
+    <result column="user_sex" property="userSex" jdbcType="INTEGER" />
+    <result column="vip_level" property="vipLevel" jdbcType="INTEGER" />
+    <result column="isLogin" property="islogin" jdbcType="INTEGER" />
+    <result column="outtime" property="outtime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    Id, username, password, user_icon, email, user_reg, status, mobile, sid, out_date, 
+    real_name, logintime, last_login_ip, user_sex, vip_level, isLogin, outtime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.bby.ants.entity.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.bby.ants.entity.UserExample" >
+    delete from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bby.ants.entity.User" >
+    insert into user (Id, username, password, 
+      user_icon, email, user_reg, 
+      status, mobile, sid, 
+      out_date, real_name, logintime, 
+      last_login_ip, user_sex, vip_level, 
+      isLogin, outtime)
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{userIcon,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{userReg,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, 
+      #{outDate,jdbcType=TIMESTAMP}, #{realName,jdbcType=VARCHAR}, #{logintime,jdbcType=TIMESTAMP}, 
+      #{lastLoginIp,jdbcType=VARCHAR}, #{userSex,jdbcType=INTEGER}, #{vipLevel,jdbcType=INTEGER}, 
+      #{islogin,jdbcType=INTEGER}, #{outtime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bby.ants.entity.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="userIcon != null" >
+        user_icon,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="userReg != null" >
+        user_reg,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="outDate != null" >
+        out_date,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="logintime != null" >
+        logintime,
+      </if>
+      <if test="lastLoginIp != null" >
+        last_login_ip,
+      </if>
+      <if test="userSex != null" >
+        user_sex,
+      </if>
+      <if test="vipLevel != null" >
+        vip_level,
+      </if>
+      <if test="islogin != null" >
+        isLogin,
+      </if>
+      <if test="outtime != null" >
+        outtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userIcon != null" >
+        #{userIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="userReg != null" >
+        #{userReg,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null" >
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="outDate != null" >
+        #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="logintime != null" >
+        #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginIp != null" >
+        #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        #{userSex,jdbcType=INTEGER},
+      </if>
+      <if test="vipLevel != null" >
+        #{vipLevel,jdbcType=INTEGER},
+      </if>
+      <if test="islogin != null" >
+        #{islogin,jdbcType=INTEGER},
+      </if>
+      <if test="outtime != null" >
+        #{outtime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bby.ants.entity.UserExample" resultType="java.lang.Integer" >
+    select count(*) from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user
+    <set >
+      <if test="record.id != null" >
+        Id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.username != null" >
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userIcon != null" >
+        user_icon = #{record.userIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userReg != null" >
+        user_reg = #{record.userReg,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.mobile != null" >
+        mobile = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sid != null" >
+        sid = #{record.sid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outDate != null" >
+        out_date = #{record.outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.realName != null" >
+        real_name = #{record.realName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logintime != null" >
+        logintime = #{record.logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastLoginIp != null" >
+        last_login_ip = #{record.lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSex != null" >
+        user_sex = #{record.userSex,jdbcType=INTEGER},
+      </if>
+      <if test="record.vipLevel != null" >
+        vip_level = #{record.vipLevel,jdbcType=INTEGER},
+      </if>
+      <if test="record.islogin != null" >
+        isLogin = #{record.islogin,jdbcType=INTEGER},
+      </if>
+      <if test="record.outtime != null" >
+        outtime = #{record.outtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user
+    set Id = #{record.id,jdbcType=BIGINT},
+      username = #{record.username,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      user_icon = #{record.userIcon,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      user_reg = #{record.userReg,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=INTEGER},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      sid = #{record.sid,jdbcType=VARCHAR},
+      out_date = #{record.outDate,jdbcType=TIMESTAMP},
+      real_name = #{record.realName,jdbcType=VARCHAR},
+      logintime = #{record.logintime,jdbcType=TIMESTAMP},
+      last_login_ip = #{record.lastLoginIp,jdbcType=VARCHAR},
+      user_sex = #{record.userSex,jdbcType=INTEGER},
+      vip_level = #{record.vipLevel,jdbcType=INTEGER},
+      isLogin = #{record.islogin,jdbcType=INTEGER},
+      outtime = #{record.outtime,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bby.ants.entity.User" >
+    update user
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userIcon != null" >
+        user_icon = #{userIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="userReg != null" >
+        user_reg = #{userReg,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null" >
+        sid = #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="outDate != null" >
+        out_date = #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="logintime != null" >
+        logintime = #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginIp != null" >
+        last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        user_sex = #{userSex,jdbcType=INTEGER},
+      </if>
+      <if test="vipLevel != null" >
+        vip_level = #{vipLevel,jdbcType=INTEGER},
+      </if>
+      <if test="islogin != null" >
+        isLogin = #{islogin,jdbcType=INTEGER},
+      </if>
+      <if test="outtime != null" >
+        outtime = #{outtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bby.ants.entity.User" >
+    update user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      user_icon = #{userIcon,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      user_reg = #{userReg,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      sid = #{sid,jdbcType=VARCHAR},
+      out_date = #{outDate,jdbcType=TIMESTAMP},
+      real_name = #{realName,jdbcType=VARCHAR},
+      logintime = #{logintime,jdbcType=TIMESTAMP},
+      last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=INTEGER},
+      vip_level = #{vipLevel,jdbcType=INTEGER},
+      isLogin = #{islogin,jdbcType=INTEGER},
+      outtime = #{outtime,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

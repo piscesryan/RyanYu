@@ -1,0 +1,239 @@
+@charset"utf-8";
+
+/* CSS Document */
+
+/* 鍏敤鏍峰紡 */
+ body {
+    font-family:Tahoma, Arial, 瀹嬩綋;
+    color:#000;
+}
+body, div, ul, li, th, table, tr, td, img, p, font, span, h1, h3 {
+    margin:0px;
+    padding:0px;
+    border:0;
+    list-style:none;
+}
+a:link, a:visited {
+    color:#164a84;
+    text-decoration:none;
+}
+a:hover {
+    color:#c00;
+    text-decoration:underline;
+}
+.clear {
+    clear:both;
+    font-size:1px;
+    visibility:hidden;
+    margin-top:0px!important;
+    *margin-top:-1px;
+    line-height:0
+}
+.float-l {
+    float:left;
+}
+.float-r {
+    float:right;
+}
+/*a,img{blr:expression(this.onFocus=this.blur());outline:none;}*/
+ .simsun {
+    font-family:瀹嬩綋;
+}
+/* 鍏辩敤鍥剧墖 */
+ .img-a {
+    background-image:url("../images/img_A.gif");
+    background-repeat:no-repeat;
+}
+/* 椤堕儴鐧婚檰banner */
+ .head {
+    background-color:#f6f6f6;
+    border-bottom:#d7d7d7 1px solid;
+    height:28px;
+    width:100%;
+}
+.topnav {
+    width:980px;
+    margin:0 auto;
+}
+.topnav em {
+    color:#CC0000;
+    font-style:normal;
+}
+.login {
+    padding-top:5px;
+    font-size:12px;
+    width:400px;
+    text-align:right;
+}
+.login a {
+    margin:0 3px;
+}
+.login span {
+    float:right;
+    line-height:25px;
+    padding:0 2px;
+}
+.login form {
+    margin-left:5px;
+    display:inline;
+}
+.login input {
+    width:70px;
+    height:17px;
+    border:#8d8d8d solid 1px;
+}
+.login .login_an {
+    background: url("../images/login_bg.jpg") no-repeat scroll 0 0;
+    width:39px;
+    height:19px;
+    cursor: pointer;
+    border:0;
+}
+.head_nav {
+    float:left;
+    line-height:29px;
+    color:#666;
+    font-size:12px;
+}
+.head_nav a {
+    margin:0 5px;
+}
+.head_nav a.sindex {
+    background: url("../images/toptb.png") no-repeat scroll 8px 1px;
+    padding:1px 0 0 25px;
+}
+.head_nav a.souc {
+    background: url("../images/toptb.png") no-repeat scroll left -28px;
+    padding: 1px 0 0 15px;
+}
+.auto_top2 {
+    width:980px;
+    margin:8px auto;
+    overflow:hidden;
+}
+.logo {
+    float:left;
+    border-left:1px solid #d7d7d7;
+    border-bottom:1px solid #d7d7d7;
+    border-top:1px solid #d7d7d7;
+}
+/* head-nav */
+ .head-nav {
+    height:29px;
+    color:#818181;
+    line-height:29px;
+    position:relative;
+    width:580px;
+    z-index:9999;
+}
+.head-nav a {
+    margin:0 4px;
+}
+.head-nav .current {
+    font-size:14px;
+    font-weight:bold;
+    color:#164a84;
+}
+.head-nav a.cutover {
+    color:#818181;
+    padding-right:25px;
+    background-position:-314px -36px;
+}
+/* 澶撮儴鑿滃崟 */
+.top-menu {
+    width:807px;
+    height:40px;
+    padding:13px 0;
+    background-position:left -92px;
+    background-repeat:repeat-x;
+    border:#26568c 1px solid;
+    overflow:hidden;
+}
+.top-menu li {
+    float:left;
+    line-height:20px;
+}
+.top-menu li.title {
+    margin-left:12px;
+    _margin-left:6px;
+    width:20px;
+    padding:0 5px 0 14px;
+    text-align:center;
+    line-height:20px;
+    font-size:14px;
+    color:#b4d3ef;
+    font-weight:bold;
+    border-left:#7698bb 1px dotted;
+}
+.top-menu li.no {
+    margin-left:0;
+    border:none;
+}
+.top-menu li a:link, .top-menu li a:visited {
+    margin:0 6px;
+    color:#fff;
+}
+/* 鍩庡競鍒囨崲寮圭獥 */
+ .c-pop {
+    width:447px;
+    padding:10px;
+    background-color:#f7f7f7;
+    border:#bdbdbd 1px solid;
+    overflow:hidden;
+    position:absolute;
+    z-index:9999999;
+    top:23px;
+    left:34px;
+}
+.c-pop .title {
+    display:block;
+    width:100%;
+    height:30px;
+    line-height:30px;
+    color:#555;
+    border-bottom:#d6d6d6 1px dotted;
+}
+.c-pop a {
+    display:block;
+    float:left;
+    height:20px;
+    line-height:20px;
+    margin:5px 5px 0 0;
+    padding:0 4px;
+    white-space:nowrap;
+}
+.c-pop a:hover {
+    color:#fff;
+    background-color:#369;
+    text-decoration:none;
+}
+.c-pop a.on {
+    color:#fff;
+    background-color:#369;
+}
+.c-pop a.note {
+    color:#E00000;
+}
+.c-pop a:hover.note {
+    background:none;
+    text-decoration:underline;
+    color:#e00000;
+}
+/* 2013-1-15 鏀圭増 */
+ .wrap_f ul {
+    width:980px;
+}
+.wrap_f ul li {
+    padding:5px 15px;
+    border-right:#d4d4d4 1px solid;
+    border-bottom:#d4d4d4 1px solid;
+    overflow:hidden;
+}
+.wrap_f ul li span {
+    display:inline-block;
+    width:100px;
+    color:#333;
+    text-align:right;
+    font-weight:bold;
+    margin-right:15px;
+}
