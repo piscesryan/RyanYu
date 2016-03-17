@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/main_background" >
+
+    <ListView
+        android:id="@+id/manage_find_result_listView"
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        android:layout_above="@+id/manage_find_result_button_back"
+        android:layout_alignParentTop="true" >
+    </ListView>
+
+    <Button
+        android:id="@+id/manage_find_result_button_back"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="返回" 
+        android:onClick="buttonBack"/>
+
+</RelativeLayout>

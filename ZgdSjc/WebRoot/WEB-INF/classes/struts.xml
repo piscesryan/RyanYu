@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<action name="Common" class="com.actions.Action_Common">
+			<result name="listContent">/WEB-INF/content/contentList.jsp</result>
+			<result name="targetContent">/WEB-INF/content/contentTarget.jsp</result>
+		</action>
+		<action name="Index" class="com.actions.Action_GoIndex">
+			<result>/WEB-INF/indexs/index.jsp</result>
+		</action>		
+		<action name="Download" class="com.actions.Action_DownloadTables">
+			<result name="toIndex">index.jsp</result>
+			<result name="download_targetContent">/WEB-INF/content/contentList.jsp</result>
+		</action>	
+		<action name="Sjxsjb" class="com.actions.Action_Sjxsjb" method="submit">
+			<result name="gotoWrite">/WEB-INF/content/Sjxsjb.jsp</result>
+			<result name="success">/WEB-INF/content/OperateOk.jsp</result>
+			<result name="error">/WEB-INF/content/OperateErr.jsp</result>
+		</action>
+
+		
+		<!-- admin -->
+		<action name="Admin" class="com.actions.Action_Admin">
+			<result name="gotoLogin">/WEB-INF/admin/Login.jsp</result>
+			<result name="login">/WEB-INF/admin/Main.jsp</result>
+			<result name="show">/WEB-INF/admin/Main_Edit.jsp</result>
+			<result name="new">/WEB-INF/admin/Main_New.jsp</result>
+			<result name="newEdit">/WEB-INF/admin/NewTargetContent.jsp</result>
+			<result name="edit">/WEB-INF/admin/EditTargetContent.jsp</result>
+			<result name="targetContent">/WEB-INF/admin/TargetContent.jsp</result>
+			<result name="success">/WEB-INF/admin/OperateSucceed.jsp</result>
+			<result name="error">/WEB-INF/admin/OperateError.jsp</result>
+			<result name="toIndex">index.jsp</result>
+			
+		</action>
+		
+	</package>
+
+
+	<!-- Add packages here -->
+
+</struts>

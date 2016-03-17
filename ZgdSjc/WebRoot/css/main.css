@@ -1,0 +1,119 @@
+/**
+*在Position属性值为absolute的同时，
+*如果有一级父对象（无论是父对象还是祖父对象，或者再高的辈分，一样）
+*的Position属性值为Relative时，则上述的相对浏览器窗口定位将会变成相对父对象定位，
+*这对精确定位是很有帮助的。
+*/
+*{
+    margin: 0;
+    padding: 0;
+}
+/*nav导航盒子*/
+nav{
+    width: 940px;
+    height: 30px;
+    line-height: 30px;
+    /*导航位置*/
+    
+    text-align: center;
+    font-size: 15px;
+    position: relative;
+    background: #35AFCF;
+}
+/*nav-main*/
+.nav-main{
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    margin-left: 15px;
+}
+.nav-main span{
+    display: inline-block;
+    margin-left: 18px;
+    width: 7px;
+    height: 7px;
+    background: url('../img/down-icon.png') no-repeat;
+}
+.nav-main a{
+text-decoration: none;
+color: white;
+font-weight: bold;
+}
+/*图标向上旋转*/
+.hover-up{
+    transition-duration: .5s;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+/*图标向下旋转*/
+.hover-down{
+    transition-duration: .5s;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+}
+/*导航条设置*/
+.nav-main>li{
+    width: 90px;
+    height: 100%;
+    display: block;
+    float: left;
+    background: #35AFCF;
+    color: #fff;
+    margin-right: 1px;
+    cursor: pointer;
+}
+.nav-main>li:hover{
+    background: #0B69EF;
+}
+/*隐藏盒子设置*/
+.hidden-box{
+    width: 88px;
+    border: 1px solid #0B69EF;
+    border-top: 0;
+    display: none;
+    margin-left: 470px;
+    top: 30px;
+    z-index:9999;
+}
+.hidden-box>ul{
+    list-style-type: none;
+    color: #0B69EF;
+    cursor: pointer;
+}
+.hidden-box li:hover{
+    background: #0B69EF;
+    color: #fff;
+}
+.hidden-box a{
+    text-decoration: none;
+    font-weight:bold;
+    color: #0B69EF;
+}
+.hidden-box a:hover{
+    text-decoration: none;
+    font-weight:bold;
+    color: white;
+}
+
+/*隐藏盒子位置设置*/
+.hidden-loc-index{
+    left: 721px;
+}
+.hidden-loc-us{
+    left: 595px;
+}
+.hidden-loc-info{
+    left: 363px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

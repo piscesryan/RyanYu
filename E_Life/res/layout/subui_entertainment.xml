@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/subui_entertainment"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:background="#178264"
+    android:orientation="vertical" >
+
+   <ListView 
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/subui_entertainment_listView">
+       
+   </ListView>
+
+</LinearLayout>

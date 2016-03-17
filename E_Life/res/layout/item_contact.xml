@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/subui_contact_imageview_zimu"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:src="@drawable/a" />
+
+    <RelativeLayout
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/subui_contact_textview_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名:aaa"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/subui_contact_textview_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/subui_contact_textview_name"
+            android:text="电话:13292839283"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <!--
+             <ImageButton
+            android:id="@+id/subui_contact_imagebutton_message"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/message" />
+
+        <ImageButton
+            android:id="@+id/subui_contact_imagebutton_phone"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/subui_contact_imagebutton_message"
+            android:src="@drawable/phone" />
+        -->
+
+    </RelativeLayout>
+
+</LinearLayout>

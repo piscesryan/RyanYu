@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainactivity_linearlayout_one"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background" >
+
+    <TextView
+        android:id="@+id/main_textView_tip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:gravity="center"
+        android:text="@string/mainactivity_linearlayout_two_textView_tips"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/main_textView_tip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+            </FrameLayout>
+
+            <RadioGroup
+                android:id="@+id/main_radioGroup"
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:background="#00000000"
+                    android:id="@+id/main_radionButton_manage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableTop="@drawable/selector_main_button_manager"
+                    android:gravity="center"
+                    android:text="管理" 
+                     />
+
+                <RadioButton
+                     android:background="#00000000"
+                    android:id="@+id/main_radionButton_write"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:button="@null"
+                    android:drawableTop="@drawable/selector_main_button_write"
+                    android:gravity="center"
+                    android:text="写日记" />
+
+                <RadioButton
+                    android:background="#00000000"
+                    android:id="@+id/main_radionButton_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.99"
+                    android:button="@null"
+                    android:drawableTop="@drawable/selector_main_button_more"
+                    android:gravity="center"
+                    android:text="更多" />
+
+            </RadioGroup>
+        </LinearLayout>
+    </TabHost>
+
+</RelativeLayout>

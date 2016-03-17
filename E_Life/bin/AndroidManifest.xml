@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.project1"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.project1.GuideOne"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.project1.GuideTwo" >
+        </activity>
+        <activity android:name="com.example.project1.GuideThree" >
+        </activity>
+        <activity android:name="com.example.project1.UIMain" >
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIEntertainment"
+            android:theme="@android:style/Theme.Dialog"  >
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUINumberAdd"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIAboutApp_Feedback"
+            android:theme="@android:style/Theme.Dialog"  >
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIEntertainment_Mp3"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIWeather">
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIMail"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIEntertainment_Mp3_ReadSdCard">
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIContact">
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIContact_Ask"
+            android:theme="@android:style/Theme.Dialog"  >
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIContact_Ask_Message"
+            android:theme="@android:style/Theme.Dialog"  >
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIEntertainment_EBook">
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIEntertainment_EBook_Open">
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIEntertainment_EBook_ReadRecord">
+        </activity>
+        <activity
+            android:name="com.example.project1.SubUIEntertainment_Mp4">
+        </activity>
+         <activity
+            android:name="com.example.project1.SubUICompass">
+        </activity>
+        <activity 
+            android:name="com.example.project1.SubUIInfo_AboutMe">
+        </activity>
+        <activity 
+            android:name="com.example.project1.SubUIInfo_AboutApp">
+        </activity>
+        <activity 
+            android:name="com.example.project1.SubUIInfo_AboutApp_AppInfo"
+            android:theme="@android:style/Theme.Dialog"  >
+        </activity>
+        <activity 
+            android:name="com.example.project1.SubUIInfo_AboutApp_Author"
+            android:theme="@android:style/Theme.Dialog"  >
+        </activity>
+        
+        <!-- 业务层打开sd卡目录，试试看能不能放在一个方法里 -->
+        <activity
+            android:name="com.services.OpenSdCardDireatoty">
+        </activity>
+    </application>  
+	
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.READ_CONTACTS"/>
+	<uses-permission android:name="android.permission.SEND_SMS"/>
+	<uses-permission android:name="android.permission.CALL_PHONE"/>
+</manifest>

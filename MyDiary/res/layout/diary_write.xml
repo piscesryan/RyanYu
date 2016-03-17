@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/diary_linearlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/diary_write_textView_titleHint"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="请输入标题"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/diary_write_textView_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/diary_write_textView_titleHint"
+        android:background="@drawable/selector_diary_write_edittext"
+        android:hint="在这里输入标题" />
+
+    <TextView
+        android:id="@+id/diary_write_textView_contentHint"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/diary_write_textView_title"
+        android:text="请输入内容"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/diary_write_textView_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/diary_write_linearLayout"
+        android:layout_below="@id/diary_write_textView_contentHint"
+        android:background="@drawable/selector_diary_write_edittext"
+        android:gravity="left|top"
+        android:hint="在这里输入内容" />
+
+    <LinearLayout
+        android:id="@+id/diary_write_linearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp" >
+
+        <Button
+            android:layout_marginRight="3dp"
+            android:id="@+id/diary_write_button_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_diary_button"
+            android:onClick="buttonOk"
+            android:text="ok" />
+
+        <Button
+            android:layout_marginLeft="3dp"
+            android:id="@+id/diary_write_button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_diary_button"
+            android:onClick="buttonBack"
+            android:text="back" />
+    </LinearLayout>
+
+</RelativeLayout>

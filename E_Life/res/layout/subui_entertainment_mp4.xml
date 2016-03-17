@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#178264" >
+
+    <SurfaceView
+        android:id="@+id/subui_entertainment_mp4_surfaceview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignBottom="@+id/subui_entertainment_mp4_relativeLayout_right"
+        android:layout_toLeftOf="@+id/subui_entertainment_mp4_relativeLayout_right" />
+
+    <RelativeLayout
+        android:id="@+id/subui_entertainment_mp4_relativeLayout_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" >
+
+        <ImageButton
+            android:id="@+id/subui_entertainment_mp4_imageButton_play"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/play"/>
+
+        <SeekBar
+            android:id="@+id/subui_entertainment_mp4_seekBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/subui_entertainment_mp4_button_openFile"
+            android:layout_toRightOf="@+id/subui_entertainment_mp4_imageButton_play" />
+
+        <TextView
+            android:id="@+id/subui_entertainment_mp4_textView_currentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/subui_entertainment_mp4_seekBar"
+            android:layout_toRightOf="@id/subui_entertainment_mp4_imageButton_play"
+            android:gravity="center"
+            android:text="00:00:00" />
+
+        <Button
+            android:id="@+id/subui_entertainment_mp4_button_openFile"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/subui_entertainment_mp4_progressBar"
+            android:layout_margin="0dip"
+            android:text="打开文件"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/subui_entertainment_mp4_textView_totalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/subui_entertainment_mp4_seekBar"
+            android:layout_below="@+id/subui_entertainment_mp4_seekBar"
+            android:text="00:00:00" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/subui_entertainment_mp4_relativeLayout_right"
+        android:layout_width="150dp"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/subui_entertainment_mp4_relativeLayout_bottom"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+          >
+
+        <TextView
+            android:id="@+id/subui_entertainment_mp4_textView_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+ 
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="最近浏览"
+            android:textSize="20sp" />
+
+        <ListView
+            android:id="@+id/subui_entertainment_mp4_listView1"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/subui_entertainment_mp4_textView_list" >
+        </ListView>
+
+    </RelativeLayout>
+
+</RelativeLayout>
