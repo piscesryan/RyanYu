@@ -1,0 +1,587 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0044)http://www.cnblogs.com/tomlxq/p/5525676.html -->
+<!DOCTYPE html PUBLIC "" ""><HTML lang="zh-cn"><HEAD><META content="IE=10.0000" 
+http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8"> 
+<META name="viewport" content="width=device-width, initial-scale=1"> 
+<TITLE>spring mvc控制框架的流程及原理1: 总概及源码分析 - tomLuo - 博客园</TITLE> <LINK href="spring%20mvc控制框架的流程及原理1%20总概及源码分析%20-%20tomLuo%20-%20博客园_files/blog-common.css" 
+rel="stylesheet" type="text/css"> <LINK id="MainCss" href="spring%20mvc控制框架的流程及原理1%20总概及源码分析%20-%20tomLuo%20-%20博客园_files/bundle-BlackSun.css" 
+rel="stylesheet" type="text/css"> <LINK id="mobile-style" href="spring%20mvc控制框架的流程及原理1%20总概及源码分析%20-%20tomLuo%20-%20博客园_files/bundle-BlackSun-mobile.css" 
+rel="stylesheet" type="text/css" media="only screen and (max-width: 768px)"> 
+<LINK title="RSS" href="http://www.cnblogs.com/tomlxq/rss" rel="alternate" type="application/rss+xml"> 
+<LINK title="RSD" href="http://www.cnblogs.com/tomlxq/rsd.xml" rel="EditURI" 
+type="application/rsd+xml"> <LINK href="http://www.cnblogs.com/tomlxq/wlwmanifest.xml" 
+rel="wlwmanifest" type="application/wlwmanifest+xml"> 
+<SCRIPT src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></SCRIPT>
+  
+<SCRIPT type="text/javascript">var currentBlogApp = 'tomlxq', cb_enable_mathjax=false;var isLogined=false;</SCRIPT>
+ 
+<SCRIPT src="/bundles/blog-common.js?v=hH1lCMV8WaIu271Nx7jPuv36TENW9-RsSxziLxUpjtc1" type="text/javascript"></SCRIPT>
+ 
+<META name="GENERATOR" content="MSHTML 11.00.10586.713"></HEAD> 
+<BODY><A name="top"></A> 
+<DIV id="top">
+<DIV>
+<TABLE class="HeaderTitles">
+  <TBODY>
+  <TR>
+    <TD>
+      <H1 class="HeaderTitle"><A class="HeaderMainTitle" id="Header1_HeaderTitle" 
+      href="http://www.cnblogs.com/tomlxq/">tomLuo</A></H1>
+      <P id="tagline">正在找工作，朋友们多帮手介绍一下呀！</P></TD></TR></TBODY></TABLE></DIV>
+<DIV>
+<TABLE class="HeaderBar" id="HeaderBar">
+  <TBODY>
+  <TR>
+    <TD class="HeaderBarTab" nowrap="">				&nbsp;<A id="blog_nav_sitehome" 
+      href="http://www.cnblogs.com/">博客园</A>&nbsp;:: <A id="blog_nav_myhome" 
+      href="http://www.cnblogs.com/tomlxq/">首页</A>&nbsp;:: <A id="blog_nav_newpost" 
+      href="https://i.cnblogs.com/EditPosts.aspx?opt=1" 
+      rel="nofollow">新随笔</A>&nbsp;:: <A id="blog_nav_contact" accesskey="9" 
+      href="https://msg.cnblogs.com/send/tomLuo" rel="nofollow">联系</A>&nbsp;:: 
+      <A id="blog_nav_rss" href="http://www.cnblogs.com/tomlxq/rss">订阅</A> <A 
+      class="XMLLink" id="blog_nav_rss_image" href="http://www.cnblogs.com/tomlxq/rss"><IMG 
+      alt="订阅" src="spring%20mvc控制框架的流程及原理1%20总概及源码分析%20-%20tomLuo%20-%20博客园_files/xml.gif"></A>&nbsp;:: 
+      <A id="blog_nav_admin" href="https://i.cnblogs.com/" rel="nofollow">管理</A>
+      			 </TD>
+    <TD width="100%" class="HeaderBarTabBack" nowrap="">
+      <DIV id="blog_stats">
+      <TABLE class="BlogStatsBar">
+        <TBODY>
+        <TR>
+          <TD width="100%"></TD>
+          <TD class="BlogStatsBar" nowrap="">&nbsp;				9 				Posts&nbsp;::
+            				0 Stories				::				1 Comments				::				0 Trackbacks
+        			 </TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<TABLE id="maintable">
+  <TBODY>
+  <TR>
+    <TD id="leftmenu">
+      <H3>公告</H3>
+      <DIV class="News">
+      <DIV id="blog-news"></DIV>
+<SCRIPT type="text/javascript">loadBlogNews();</SCRIPT>
+       </DIV>
+      <DIV id="blog-sidecolumn"></DIV>
+<SCRIPT type="text/javascript">loadBlogSideColumn();</SCRIPT>
+      	 </TD>
+    <TD id="main">
+      <DIV id="post_detail">
+      <DIV class="post">
+      <DIV class="postTitle"><A id="cb_post_title_url" href="http://www.cnblogs.com/tomlxq/p/5525676.html">spring 
+      mvc控制框架的流程及原理1: 总概及源码分析</A>			 </DIV>
+      <DIV class="postText">
+      <DIV id="cnblogs_post_body">
+      <DIV id="content">
+      <DIV id="content">
+      <DIV class="sect2">
+      <H3 id="_主要介绍spring_mvc控制框架的流程及原理">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+      &nbsp;主要介绍spring mvc控制框架的流程及原理</H3></DIV>
+      <DIV class="sect1">
+      <H2 id="_spring_web_mvc处理请求的流程">Spring Web MVC处理请求的流程</H2>
+      <DIV class="sectionbody">
+      <DIV class="imageblock">
+      <DIV class="content"><A class="image" href="https://github.com/tomlxq/best-practice/blob/master/doc/spring-web-mvc-workflow.JPG"><IMG 
+      width="719" height="332" alt="Spring Web MVC处理请求的流程" src="spring%20mvc控制框架的流程及原理1%20总概及源码分析%20-%20tomLuo%20-%20博客园_files/spring-web-mvc-workflow.jpg"> 
+      </A></DIV></DIV>
+      <DIV class="paragraph">
+      <P>具体执行步骤如下：</P></DIV>
+      <DIV class="olist arabic">
+      <OL class="arabic">
+        <LI>
+        <P>首先用户发送请求————&gt;前端控制器，前端控制器根据请求信息（如URL）来决定选择哪一个页面控制器进行处理并把请求委托给它，即以前的控制器的控制逻辑部分；图2-1中的1、2步骤；</P></LI>
+        <LI>
+        <P>页面控制器接收到请求后，进行功能处理，首先需要收集和绑定请求参数到一个对象，这个对象在Spring Web 
+        MVC中叫命令对象，并进行验证，然后将命令对象委托给业务对象进行处理；处理完毕后返回一个ModelAndView（模型数据和逻辑视图名）；图2-1中的3、4、5步骤；</P></LI>
+        <LI>
+        <P>前端控制器收回控制权，然后根据返回的逻辑视图名，选择相应的视图进行渲染，并把模型数据传入以便视图渲染；图2-1中的步骤6、7；</P></LI>
+        <LI>
+        <P>前端控制器再次收回控制权，将响应返回给用户，图2-1中的步骤8；至此整个结束。</P></LI></OL></DIV></DIV></DIV>
+      <DIV class="sect1">
+      <H2 id="_spring_web_mvc架构">Spring Web MVC架构</H2>
+      <DIV class="sectionbody">
+      <DIV class="imageblock">
+      <DIV class="content"><A class="image" href="http://www.cnblogs.com/doc/spring-web-mvc-arch.jpg"><IMG 
+      width="860" height="406" alt="Spring Web MVC架构" src="spring%20mvc控制框架的流程及原理1%20总概及源码分析%20-%20tomLuo%20-%20博客园_files/spring-web-mvc-arch.jpg"> 
+      </A></DIV></DIV>
+      <DIV class="paragraph">
+      <P>用户发送请求到前端控制器</P></DIV>
+      <DIV class="listingblock">
+      <DIV class="content">
+<PRE class="CodeRay highlight"><CODE data-lang="xml"><SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;servlet&gt;</STRONG></SPAN>
+    <SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;servlet-name&gt;</STRONG></SPAN>spring<SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;/servlet-name&gt;</STRONG></SPAN>
+    <SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;servlet-class&gt;</STRONG></SPAN>org.springframework.web.servlet.DispatcherServlet<SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;/servlet-class&gt;</STRONG></SPAN>
+    <SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;init-param&gt;</STRONG></SPAN>
+        <SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;param-name&gt;</STRONG></SPAN>contextConfigLocation<SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;/param-name&gt;</STRONG></SPAN>
+        <SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;param-value&gt;</STRONG></SPAN>classpath:spring-mvc.xml<SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;/param-value&gt;</STRONG></SPAN>
+    <SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;/init-param&gt;</STRONG></SPAN>
+    <SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;load-on-startup&gt;</STRONG></SPAN>1<SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;/load-on-startup&gt;</STRONG></SPAN>
+<SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;/servlet&gt;</STRONG></SPAN>
+<SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;servlet-mapping&gt;</STRONG></SPAN>
+    <SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;servlet-name&gt;</STRONG></SPAN>spring<SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;/servlet-name&gt;</STRONG></SPAN>
+    <SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;url-pattern&gt;</STRONG></SPAN>/<SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;/url-pattern&gt;</STRONG></SPAN>
+<SPAN style="color: rgb(0, 119, 0);"><STRONG>&lt;/servlet-mapping&gt;</STRONG></SPAN></CODE></PRE></DIV></DIV>
+      <DIV class="paragraph">
+      <P>架构图对应的DispatcherServlet核心代码如下:</P></DIV>
+      <DIV class="listingblock">
+      <DIV class="content">
+<PRE class="CodeRay highlight"><CODE data-lang="java"><SPAN style="color: rgb(119, 119, 119);">//前端控制器的分派方法</SPAN>
+<SPAN style="color: rgb(0, 136, 136);"><STRONG>protected</STRONG></SPAN> <SPAN style="color: rgb(51, 51, 153);"><STRONG>void</STRONG></SPAN> doDispatch(HttpServletRequest request, HttpServletResponse response) <SPAN style="color: rgb(0, 136, 136);"><STRONG>throws</STRONG></SPAN> <SPAN style="color: rgb(204, 0, 0);"><STRONG>Exception</STRONG></SPAN> {
+                HttpServletRequest processedRequest = request;
+                HandlerExecutionChain mappedHandler = <SPAN style="color: rgb(0, 102, 153);">null</SPAN>;
+                <SPAN style="color: rgb(51, 51, 153);"><STRONG>boolean</STRONG></SPAN> multipartRequestParsed = <SPAN style="color: rgb(0, 102, 153);">false</SPAN>;
+
+                WebAsyncManager asyncManager = WebAsyncUtils.getAsyncManager(request);
+
+                <SPAN style="color: rgb(0, 136, 0);"><STRONG>try</STRONG></SPAN> {
+                        ModelAndView mv = <SPAN style="color: rgb(0, 102, 153);">null</SPAN>;
+                        <SPAN style="color: rgb(204, 0, 0);"><STRONG>Exception</STRONG></SPAN> dispatchException = <SPAN style="color: rgb(0, 102, 153);">null</SPAN>;
+                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>try</STRONG></SPAN> {
+                        <SPAN style="color: rgb(255, 0, 0);">　</SPAN><SPAN style="color: rgb(255, 0, 0);">　</SPAN><SPAN style="color: rgb(119, 119, 119);">//检查是否是请求multipart如文件上传，如果是将通过multipartResolver解析</SPAN>
+                                processedRequest = checkMultipart(request);
+                                multipartRequestParsed = (processedRequest != request);
+
+                                <SPAN style="color: rgb(119, 119, 119);">// Determine handler for the current request.</SPAN>
+                                <SPAN style="color: rgb(119, 119, 119);">//步骤2,请求到处理器(页面控制器)的映射，通过HanMapping进行映射</SPAN>
+                                mappedHandler = getHandler(processedRequest);
+                                <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (mappedHandler == <SPAN style="color: rgb(0, 102, 153);">null</SPAN> || mappedHandler.getHandler() == <SPAN style="color: rgb(0, 102, 153);">null</SPAN>) {
+                                        noHandlerFound(processedRequest, response);
+                                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>return</STRONG></SPAN>;
+                                }
+
+                                <SPAN style="color: rgb(119, 119, 119);">// Determine handler adapter for the current request.</SPAN>
+                                <SPAN style="color: rgb(119, 119, 119);">//步骤3,处理适配，即交我们的处理器包装成相应的适配器，</SPAN>
+                                HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());
+
+                                <SPAN style="color: rgb(119, 119, 119);">// Process last-modified header, if supported by the handler.</SPAN>
+                 <SPAN style="color: rgb(119, 119, 119);">// 304 Not Modified缓存支持</SPAN>
+                                <SPAN style="color: rgb(0, 170, 136);"><STRONG>String</STRONG></SPAN> method = request.getMethod();
+                                <SPAN style="color: rgb(51, 51, 153);"><STRONG>boolean</STRONG></SPAN> isGet = <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">GET</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN>.equals(method);
+                                <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (isGet || <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">HEAD</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN>.equals(method)) {
+                                        <SPAN style="color: rgb(51, 51, 153);"><STRONG>long</STRONG></SPAN> lastModified = ha.getLastModified(request, mappedHandler.getHandler());
+                                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (logger.isDebugEnabled()) {
+                                                logger.debug(<SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">Last-Modified value for [</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> + getRequestUri(request) + <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">] is: </SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> + lastModified);
+                                        }
+                                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (<SPAN style="color: rgb(0, 136, 0);"><STRONG>new</STRONG></SPAN> ServletWebRequest(request, response).checkNotModified(lastModified) &amp;&amp; isGet) {
+                                                <SPAN style="color: rgb(0, 136, 0);"><STRONG>return</STRONG></SPAN>;
+                                        }
+                                }
+ <SPAN style="color: rgb(255, 0, 0);">　</SPAN><SPAN style="color: rgb(255, 0, 0);">　　　　　　</SPAN><SPAN style="color: rgb(119, 119, 119);">// 执行处理器相关的拦截器的预处理（HandlerInterceptor.preHandle）</SPAN>
+                                <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (!mappedHandler.applyPreHandle(processedRequest, response)) {
+                                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>return</STRONG></SPAN>;
+                                }
+
+                                <SPAN style="color: rgb(119, 119, 119);">// Actually invoke the handler.</SPAN>
+                                <SPAN style="color: rgb(119, 119, 119);">// 步骤4、由适配器执行处理器（调用处理器相应功能处理方法）</SPAN>
+                                mv = ha.handle(processedRequest, response, mappedHandler.getHandler());
+
+                                <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (asyncManager.isConcurrentHandlingStarted()) {
+                                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>return</STRONG></SPAN>;
+                                }
+
+                                applyDefaultViewName(processedRequest, mv);
+                                 <SPAN style="color: rgb(119, 119, 119);">// 执行处理器相关的拦截器的后处理（HandlerInterceptor.postHandle）</SPAN>
+                                mappedHandler.applyPostHandle(processedRequest, response, mv);
+                        }
+                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>catch</STRONG></SPAN> (<SPAN style="color: rgb(204, 0, 0);"><STRONG>Exception</STRONG></SPAN> ex) {
+                                dispatchException = ex;
+                        }
+
+                        processDispatchResult(processedRequest, response, mappedHandler, mv, dispatchException);
+                }
+                <SPAN style="color: rgb(0, 136, 0);"><STRONG>catch</STRONG></SPAN> (<SPAN style="color: rgb(204, 0, 0);"><STRONG>Exception</STRONG></SPAN> ex) {
+                        triggerAfterCompletion(processedRequest, response, mappedHandler, ex);
+                }
+                <SPAN style="color: rgb(0, 136, 0);"><STRONG>catch</STRONG></SPAN> (<SPAN style="color: rgb(204, 0, 0);"><STRONG>Error</STRONG></SPAN> err) {
+                        triggerAfterCompletionWithError(processedRequest, response, mappedHandler, err);
+                }
+                <SPAN style="color: rgb(0, 136, 0);"><STRONG>finally</STRONG></SPAN> {
+                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (asyncManager.isConcurrentHandlingStarted()) {
+                                <SPAN style="color: rgb(119, 119, 119);">// Instead of postHandle and afterCompletion</SPAN>
+                                <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (mappedHandler != <SPAN style="color: rgb(0, 102, 153);">null</SPAN>) {
+                                        mappedHandler.applyAfterConcurrentHandlingStarted(processedRequest, response);
+                                }
+                        }
+                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>else</STRONG></SPAN> {
+                                <SPAN style="color: rgb(119, 119, 119);">// Clean up any resources used by a multipart request.</SPAN>
+                                <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (multipartRequestParsed) {
+                                        cleanupMultipart(processedRequest);
+                                }
+                        }
+                }
+        }
+        <SPAN style="color: rgb(119, 119, 119);">//....</SPAN>
+        <SPAN style="color: rgb(0, 136, 136);"><STRONG>private</STRONG></SPAN> <SPAN style="color: rgb(51, 51, 153);"><STRONG>void</STRONG></SPAN> processDispatchResult(HttpServletRequest request, HttpServletResponse response,
+                            HandlerExecutionChain mappedHandler, ModelAndView mv, <SPAN style="color: rgb(204, 0, 0);"><STRONG>Exception</STRONG></SPAN> exception) <SPAN style="color: rgb(0, 136, 136);"><STRONG>throws</STRONG></SPAN> <SPAN style="color: rgb(204, 0, 0);"><STRONG>Exception</STRONG></SPAN> {
+
+                    <SPAN style="color: rgb(51, 51, 153);"><STRONG>boolean</STRONG></SPAN> errorView = <SPAN style="color: rgb(0, 102, 153);">false</SPAN>;
+
+                    <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (exception != <SPAN style="color: rgb(0, 102, 153);">null</SPAN>) {
+                            <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (exception <SPAN style="color: rgb(0, 136, 0);"><STRONG>instanceof</STRONG></SPAN> ModelAndViewDefiningException) {
+                                    logger.debug(<SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">ModelAndViewDefiningException encountered</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN>, exception);
+                                    mv = ((ModelAndViewDefiningException) exception).getModelAndView();
+                            }
+                            <SPAN style="color: rgb(0, 136, 0);"><STRONG>else</STRONG></SPAN> {
+                                    <SPAN style="color: rgb(0, 170, 136);"><STRONG>Object</STRONG></SPAN> handler = (mappedHandler != <SPAN style="color: rgb(0, 102, 153);">null</SPAN> ? mappedHandler.getHandler() : <SPAN style="color: rgb(0, 102, 153);">null</SPAN>);
+                                    mv = processHandlerException(request, response, handler, exception);
+                                    errorView = (mv != <SPAN style="color: rgb(0, 102, 153);">null</SPAN>);
+                            }
+                    }
+
+                    <SPAN style="color: rgb(119, 119, 119);">// Did the handler return a view to render?</SPAN>
+                     <SPAN style="color: rgb(119, 119, 119);">//步骤5 步骤6、解析视图并进行视图的渲染</SPAN>
+             <SPAN style="color: rgb(119, 119, 119);">//步骤5 由ViewResolver解析View（viewResolver.resolveViewName(viewName, locale)）</SPAN>
+              <SPAN style="color: rgb(119, 119, 119);">//步骤6 视图在渲染时会把Model传入（view.render(mv.getModelInternal(), request, response);）</SPAN>
+                    <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (mv != <SPAN style="color: rgb(0, 102, 153);">null</SPAN> &amp;&amp; !mv.wasCleared()) {
+                            render(mv, request, response);
+                            <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (errorView) {
+                                    WebUtils.clearErrorRequestAttributes(request);
+                            }
+                    }
+                    <SPAN style="color: rgb(0, 136, 0);"><STRONG>else</STRONG></SPAN> {
+                            <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (logger.isDebugEnabled()) {
+                                    logger.debug(<SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">Null ModelAndView returned to DispatcherServlet with name '</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> + getServletName() +
+                                                    <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">': assuming HandlerAdapter completed request handling</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN>);
+                            }
+                    }
+
+                    <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (WebAsyncUtils.getAsyncManager(request).isConcurrentHandlingStarted()) {
+                            <SPAN style="color: rgb(119, 119, 119);">// Concurrent handling started during a forward</SPAN>
+                            <SPAN style="color: rgb(0, 136, 0);"><STRONG>return</STRONG></SPAN>;
+                    }
+            <SPAN style="color: rgb(119, 119, 119);">//执行处理器相关的拦截器的完成后处理（HandlerInterceptor.afterCompletion）</SPAN>
+                    <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (mappedHandler != <SPAN style="color: rgb(0, 102, 153);">null</SPAN>) {
+                            mappedHandler.triggerAfterCompletion(request, response, <SPAN style="color: rgb(0, 102, 153);">null</SPAN>);
+                    }
+            }</CODE></PRE></DIV></DIV>
+      <DIV class="paragraph">
+      <P>核心架构的具体流程步骤如下：</P></DIV>
+      <DIV class="olist arabic">
+      <OL class="arabic">
+        <LI>
+        <P>首先用户发送请求——&gt;DispatcherServlet，前端控制器收到请求后自己不进行处理，而是委托给其他的解析器进行处理，作为统一访问点，进行全局的流程控制；</P></LI>
+        <LI>
+        <P>DispatcherServlet——&gt;HandlerMapping， 
+        HandlerMapping将会把请求映射为HandlerExecutionChain对象（包含一个Handler处理器（页面控制器）对象、多个HandlerInterceptor拦截器）对象，通过这种策略模式，很容易添加新的映射策略；</P></LI></OL></DIV>
+      <DIV class="listingblock">
+      <DIV class="content">
+<PRE>/**
+	 * Return the HandlerExecutionChain for this request.
+	 * &lt;p&gt;Tries all handler mappings in order.
+	 * @param request current HTTP request
+	 * @return the HandlerExecutionChain, or {@code null} if no handler could be found
+	 */
+	protected HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
+		for (HandlerMapping hm : this.handlerMappings) {
+			if (logger.isTraceEnabled()) {
+				logger.trace(
+						"Testing handler map [" + hm + "] in DispatcherServlet with name '" + getServletName() + "'");
+			}
+			HandlerExecutionChain handler = hm.getHandler(request);
+			if (handler != null) {
+				return handler;
+			}
+		}
+		return null;
+	}</PRE></DIV></DIV>
+      <DIV class="olist arabic">
+      <OL class="arabic">
+        <LI>
+        <P>DispatcherServlet——&gt;HandlerAdapter，HandlerAdapter将会把处理器包装为适配器，从而支持多种类型的处理器，即适配器设计模式的应用，从而很容易支持很多类型的处理器；</P></LI></OL></DIV>
+      <DIV class="listingblock">
+      <DIV class="content">
+<PRE>/**
+ * Return the HandlerAdapter for this handler object.
+ * @param handler the handler object to find an adapter for
+ * @throws ServletException if no HandlerAdapter can be found for the handler. This is a fatal error.
+ */
+protected HandlerAdapter getHandlerAdapter(Object handler) throws ServletException {
+    for (HandlerAdapter ha : this.handlerAdapters) {
+        if (logger.isTraceEnabled()) {
+            logger.trace("Testing handler adapter [" + ha + "]");
+        }
+        if (ha.supports(handler)) {
+            return ha;
+        }
+    }
+    throw new ServletException("No adapter for handler [" + handler +
+            "]: The DispatcherServlet configuration needs to include a HandlerAdapter that supports this handler");
+}</PRE></DIV></DIV>
+      <DIV class="olist arabic">
+      <OL class="arabic">
+        <LI>
+        <P>HandlerAdapter——&gt;处理器功能处理方法的调用，HandlerAdapter将会根据适配的结果调用真正的处理器的功能处理方法，完成功能处理；并返回一个ModelAndView对象（包含模型数据、逻辑视图名）；</P></LI></OL></DIV>
+      <DIV class="listingblock">
+      <DIV class="content">
+<PRE>// Actually invoke the handler.
+mv = ha.handle(processedRequest, response, mappedHandler.getHandler());
+//...
+/**
+ * Use the given handler to handle this request.
+ * The workflow that is required may vary widely.
+ * @param request current HTTP request
+ * @param response current HTTP response
+ * @param handler handler to use. This object must have previously been passed
+ * to the {@code supports} method of this interface, which must have
+ * returned {@code true}.
+ * @throws Exception in case of errors
+ * @return ModelAndView object with the name of the view and the required
+ * model data, or {@code null} if the request has been handled directly
+ */
+ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception;</PRE></DIV></DIV>
+      <DIV class="olist arabic">
+      <OL class="arabic">
+        <LI>
+        <P>ModelAndView的逻辑视图名——&gt; ViewResolver， 
+        ViewResolver将把逻辑视图名解析为具体的View，通过这种策略模式，很容易更换其他视图技术；</P></LI>
+        <LI>
+        <P>View——&gt;渲染，View会根据传进来的Model模型数据进行渲染，此处的Model实际是一个Map数据结构，因此很容易支持其他视图技术；</P></LI></OL></DIV>
+      <DIV class="listingblock">
+      <DIV class="content">
+<PRE class="CodeRay highlight"><CODE data-lang="java"><SPAN style="color: rgb(119, 119, 119);">// Did the handler return a view to render?</SPAN>
+<SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (mv != <SPAN style="color: rgb(0, 102, 153);">null</SPAN> &amp;&amp; !mv.wasCleared()) {
+    render(mv, request, response);
+    <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (errorView) {
+        WebUtils.clearErrorRequestAttributes(request);
+    }
+}
+<SPAN style="color: rgb(119, 119, 119);">//...</SPAN>
+<SPAN style="color: rgb(119, 119, 119);">/**
+         * Render the given ModelAndView.
+         * &lt;p&gt;This is the last stage in handling a request. It may involve resolving the view by name.
+         * @param mv the ModelAndView to render
+         * @param request current HTTP servlet request
+         * @param response current HTTP servlet response
+         * @throws ServletException if view is missing or cannot be resolved
+         * @throws Exception if there's a problem rendering the view
+         */</SPAN>
+        <SPAN style="color: rgb(0, 136, 136);"><STRONG>protected</STRONG></SPAN> <SPAN style="color: rgb(51, 51, 153);"><STRONG>void</STRONG></SPAN> render(ModelAndView mv, HttpServletRequest request, HttpServletResponse response) <SPAN style="color: rgb(0, 136, 136);"><STRONG>throws</STRONG></SPAN> <SPAN style="color: rgb(204, 0, 0);"><STRONG>Exception</STRONG></SPAN> {
+                <SPAN style="color: rgb(119, 119, 119);">// Determine locale for request and apply it to the response.</SPAN>
+                <SPAN style="color: rgb(0, 170, 136);"><STRONG>Locale</STRONG></SPAN> locale = <SPAN style="color: rgb(153, 85, 0);">this</SPAN>.localeResolver.resolveLocale(request);
+                response.setLocale(locale);
+                <SPAN style="color: rgb(0, 170, 136);"><STRONG>View</STRONG></SPAN> view;
+                <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (mv.isReference()) {
+                        <SPAN style="color: rgb(119, 119, 119);">// We need to resolve the view name.</SPAN>
+                        view = resolveViewName(mv.getViewName(), mv.getModelInternal(), locale, request);
+                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (view == <SPAN style="color: rgb(0, 102, 153);">null</SPAN>) {
+                                <SPAN style="color: rgb(0, 136, 0);"><STRONG>throw</STRONG></SPAN> <SPAN style="color: rgb(0, 136, 0);"><STRONG>new</STRONG></SPAN> ServletException(<SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">Could not resolve view with name '</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> + mv.getViewName() +
+                                                <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">' in servlet with name '</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> + getServletName() + <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">'</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN>);
+                        }
+                }
+                <SPAN style="color: rgb(0, 136, 0);"><STRONG>else</STRONG></SPAN> {
+                        <SPAN style="color: rgb(119, 119, 119);">// No need to lookup: the ModelAndView object contains the actual View object.</SPAN>
+                        view = mv.getView();
+                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (view == <SPAN style="color: rgb(0, 102, 153);">null</SPAN>) {
+                                <SPAN style="color: rgb(0, 136, 0);"><STRONG>throw</STRONG></SPAN> <SPAN style="color: rgb(0, 136, 0);"><STRONG>new</STRONG></SPAN> ServletException(<SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">ModelAndView [</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> + mv + <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">] neither contains a view name nor a </SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> +
+                                                <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">View object in servlet with name '</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> + getServletName() + <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">'</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN>);
+                        }
+                }
+                <SPAN style="color: rgb(119, 119, 119);">// Delegate to the View object for rendering.</SPAN>
+                <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (logger.isDebugEnabled()) {
+                        logger.debug(<SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">Rendering view [</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> + view + <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">] in DispatcherServlet with name '</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> + getServletName() + <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">'</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN>);
+                }
+                <SPAN style="color: rgb(0, 136, 0);"><STRONG>try</STRONG></SPAN> {
+                        view.render(mv.getModelInternal(), request, response);
+                }
+                <SPAN style="color: rgb(0, 136, 0);"><STRONG>catch</STRONG></SPAN> (<SPAN style="color: rgb(204, 0, 0);"><STRONG>Exception</STRONG></SPAN> ex) {
+                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (logger.isDebugEnabled()) {
+                                logger.debug(<SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">Error rendering view [</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> + view + <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">] in DispatcherServlet with name '</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN> +
+                                                getServletName() + <SPAN style="color: rgb(119, 17, 0);">"</SPAN><SPAN style="color: rgb(221, 34, 0);">'</SPAN><SPAN style="color: rgb(119, 17, 0);">"</SPAN>, ex);
+                        }
+                        <SPAN style="color: rgb(0, 136, 0);"><STRONG>throw</STRONG></SPAN> ex;
+                }
+        }
+<SPAN style="color: rgb(119, 119, 119);">//...</SPAN>
+<SPAN style="color: rgb(119, 119, 119);">/**
+ * Resolve the given view name into a View object (to be rendered).
+ * &lt;p&gt;The default implementations asks all ViewResolvers of this dispatcher.
+ * Can be overridden for custom resolution strategies, potentially based on
+ * specific model attributes or request parameters.
+ * @param viewName the name of the view to resolve
+ * @param model the model to be passed to the view
+ * @param locale the current locale
+ * @param request current HTTP servlet request
+ * @return the View object, or {@code null} if none found
+ * @throws Exception if the view cannot be resolved
+ * (typically in case of problems creating an actual View object)
+ * @see ViewResolver#resolveViewName
+ */</SPAN>
+<SPAN style="color: rgb(0, 136, 136);"><STRONG>protected</STRONG></SPAN> <SPAN style="color: rgb(0, 170, 136);"><STRONG>View</STRONG></SPAN> resolveViewName(<SPAN style="color: rgb(0, 170, 136);"><STRONG>String</STRONG></SPAN> viewName, <SPAN style="color: rgb(0, 170, 136);"><STRONG>Map</STRONG></SPAN>&lt;<SPAN style="color: rgb(0, 170, 136);"><STRONG>String</STRONG></SPAN>, <SPAN style="color: rgb(0, 170, 136);"><STRONG>Object</STRONG></SPAN>&gt; model, <SPAN style="color: rgb(0, 170, 136);"><STRONG>Locale</STRONG></SPAN> locale,
+        HttpServletRequest request) <SPAN style="color: rgb(0, 136, 136);"><STRONG>throws</STRONG></SPAN> <SPAN style="color: rgb(204, 0, 0);"><STRONG>Exception</STRONG></SPAN> {
+    <SPAN style="color: rgb(0, 136, 0);"><STRONG>for</STRONG></SPAN> (ViewResolver viewResolver : <SPAN style="color: rgb(153, 85, 0);">this</SPAN>.viewResolvers) {
+        <SPAN style="color: rgb(0, 170, 136);"><STRONG>View</STRONG></SPAN> view = viewResolver.resolveViewName(viewName, locale);
+        <SPAN style="color: rgb(0, 136, 0);"><STRONG>if</STRONG></SPAN> (view != <SPAN style="color: rgb(0, 102, 153);">null</SPAN>) {
+            <SPAN style="color: rgb(0, 136, 0);"><STRONG>return</STRONG></SPAN> view;
+        }
+    }
+    <SPAN style="color: rgb(0, 136, 0);"><STRONG>return</STRONG></SPAN> <SPAN style="color: rgb(0, 102, 153);">null</SPAN>;
+}</CODE></PRE></DIV></DIV>
+      <DIV class="olist arabic">
+      <OL class="arabic">
+        <LI>
+        <P>返回控制权给DispatcherServlet，由DispatcherServlet返回响应给用户，到此一个流程结束。</P></LI></OL></DIV>
+      <DIV class="paragraph">
+      <P>此处我们只是讲了核心流程，没有考虑拦截器、本地解析、文件上传解析等，后边再细述。</P></DIV>
+      <DIV class="paragraph">
+      <P>在此我们可以看出具体的核心开发步骤： 1. DispatcherServlet在web.xml中的部署描述，从而拦截请求到Spring Web 
+      MVC 2. HandlerMapping的配置，从而将请求映射到处理器 3. HandlerAdapter的配置，从而支持多种类型的处理器 4. 
+      ViewResolver的配置，从而将逻辑视图名解析为具体视图技术 5. 处理器（页面控制器）的配置，从而进行功能处理</P></DIV>
+      <DIV class="imageblock">
+      <DIV class="content"><A class="image" href="http://www.cnblogs.com/doc/spring_framework.png"><IMG 
+      width="672" height="504" alt="spring框架图" src="spring%20mvc控制框架的流程及原理1%20总概及源码分析%20-%20tomLuo%20-%20博客园_files/spring_framework.png"> 
+      </A></DIV></DIV></DIV></DIV>
+      <H1 class="sect0" id="_spring_面向方面编程_aop_和控制反转_ioc_容器">Spring 
+      面向方面编程(AOP)和控制反转(IOC)容器</H1>
+      <DIV class="ulist">
+      <UL>
+        <LI>
+        <P>控制反转 (Inversion of Control)，英文缩写IoC</P></LI></UL></DIV>
+      <DIV class="paragraph">
+      <P>应用控制反转，对象在被创建的时候，由一个调控系统内所有对象的外界实体将其所依赖的对象的引用传递给它。 
+      也可以说，依赖被注入到对象中。所以，控制反转是，关于一个对象如何获取他所依赖的对象的引用，这个责任的反转。</P></DIV>
+      <DIV class="paragraph">
+      <P>控制反转主要有两方面：</P></DIV>
+      <DIV class="literalblock">
+      <DIV class="content">
+<PRE>&gt; 依赖注入 (Dependency Injection)，缩写为DI
+&gt; 依赖查找 (Dependency Lookup)</PRE></DIV></DIV>
+      <DIV class="paragraph">
+      <P>其中，依赖注入应用较为广泛。 依赖注入是一种技术，它是指组件不做定位查询，只提供普通的Java方法让容器去决定依赖关系。 
+      容器全权负责的组件的装配，它会把符合依赖关系的对象通过JavaBean属性或者构造函数传递给需要的对象。</P></DIV>
+      <DIV class="paragraph">
+      <P>通过JavaBean属性注射依赖关系的做法称为设值方法注入(Setter 
+      Injection)；将依赖关系作为构造函数参数传入的做法称为构造器注入（Constructor Injection）。</P></DIV>
+      <DIV class="ulist">
+      <UL>
+        <LI>
+        <P>面向切面编程 (Aspect Oriented Programming)，缩写为AOP</P></LI></UL></DIV>
+      <DIV class="paragraph">
+      <P>通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。 
+      利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</P></DIV>
+      <H1 class="sect0" id="_主要模块介绍">主要模块介绍</H1>
+      <DIV class="paragraph">
+      <P><STRONG>核心容器</STRONG> 核心容器提供 Spring 框架的基本功能。核心容器的主要组件是 
+      BeanFactory，它是工厂模式的实现。BeanFactory 使用控制反转 （IOC） 
+      模式将应用程序的配置和依赖性规范与实际的应用程序代码分开。</P></DIV>
+      <DIV class="paragraph">
+      <P><STRONG>Spring 上下文</STRONG> Spring 上下文是一个配置文件，向 Spring 框架提供上下文信息。Spring 
+      上下文包括企业服务，例如 JNDI、EJB、电子邮件、国际化、校验和调度功能。</P></DIV>
+      <DIV class="paragraph">
+      <P><STRONG>Spring AOP</STRONG> 通过配置管理特性，Spring AOP 模块直接将面向方面的编程功能集成到了 
+      Spring 框架中。所以，可以很容易地使 Spring 框架管理的任何对象支持 AOP。Spring AOP 模块为基于 Spring 
+      的应用程序中的对象提供了事务管理服务。通过使用 Spring AOP，不用依赖 EJB 
+      组件，就可以将声明性事务管理集成到应用程序中。</P></DIV>
+      <DIV class="paragraph">
+      <P><STRONG>Spring DAO</STRONG> JDBC DAO 
+      抽象层提供了有意义的异常层次结构，可用该结构来管理异常处理和不同数据库供应商抛出的错误消息。异常层次结构简化了错误处理，并且极大地降低了需要编写的异常代码数量（例如打开和关闭连接）。Spring 
+      DAO 的面向 JDBC 的异常遵从通用的 DAO 异常层次结构。</P></DIV>
+      <DIV class="paragraph">
+      <P><STRONG>Spring ORM</STRONG> Spring 框架插入了若干个 ORM 框架，从而提供了 ORM 
+      的对象关系工具，其中包括 JDO、Hibernate 和 iBatis SQL Map。所有这些都遵从 Spring 的通用事务和 DAO 
+      异常层次结构。</P></DIV>
+      <DIV class="paragraph">
+      <P><STRONG>Spring Web 模块</STRONG> Web 上下文模块建立在应用程序上下文模块之上，为基于 Web 
+      的应用程序提供了上下文。所以，Spring 框架支持与 Jakarta Struts 的集成。Web 
+      模块还简化了处理多部分请求以及将请求参数绑定到域对象的工作。</P></DIV>
+      <DIV class="paragraph">
+      <P><STRONG>Spring MVC 框架</STRONG> MVC 框架是一个全功能的构建 Web 应用程序的 MVC 
+      实现。通过策略接口，MVC 框架变成为高度可配置的，MVC 容纳了大量视图技术，其中包括 JSP、Velocity、Tiles、iText 和 
+      POI。</P></DIV>
+      <DIV class="paragraph">
+      <P>Spring 框架的功能可以用在任何 J2EE 服务器中，大多数功能也适用于不受管理的环境。Spring 的核心要点是：支持不绑定到特定 
+      J2EE 服务的可重用业务和数据访问对象。毫无疑问，这样的对象可以在不同 J2EE 环境 （Web 或 
+      EJB）、独立应用程序、测试环境之间重用。</P></DIV>
+      <H1 class="sect0" id="_springmvc工作流程描述">SpringMVC工作流程描述</H1>
+      <DIV class="olist arabic">
+      <OL class="arabic">
+        <LI>
+        <P>向服务器发送HTTP请求，请求被前端控制器 DispatcherServlet 捕获。</P></LI>
+        <LI>
+        <P>DispatcherServlet 根据 &lt;servlet-name&gt;-servlet.xml 
+        中的配置对请求的URL进行解析，得到请求资源标识符（URI）。 然后根据该URI，调用 HandlerMapping 
+        获得该Handler配置的所有相关的对象（包括Handler对象以及Handler对象对应的拦截器），最后以 
+        HandlerExecutionChain 对象的形式返回。</P></LI>
+        <LI>
+        <P>DispatcherServlet 根据获得的Handler，选择一个合适的 
+        HandlerAdapter。（附注：如果成功获得HandlerAdapter后，此时将开始执行拦截器的preHandler(…​)方法）。</P></LI>
+        <LI>
+        <P>提取Request中的模型数据，填充Handler入参，开始执行Handler（Controller)。 
+        在填充Handler的入参过程中，根据你的配置，Spring将帮你做一些额外的工作：</P>
+        <DIV class="literalblock">
+        <DIV class="content">
+<PRE>HttpMessageConveter： 将请求消息（如Json、xml等数据）转换成一个对象，将对象转换为指定的响应信息。
+数据转换：对请求消息进行数据转换。如String转换成Integer、Double等。
+数据根式化：对请求消息进行数据格式化。 如将字符串转换成格式化数字或格式化日期等。
+数据验证： 验证数据的有效性（长度、格式等），验证结果存储到BindingResult或Error中。</PRE></DIV></DIV></LI>
+        <LI>
+        <P>Handler(Controller)执行完成后，向 DispatcherServlet 返回一个 ModelAndView 
+        对象；</P></LI>
+        <LI>
+        <P>根据返回的ModelAndView，选择一个适合的 
+        ViewResolver（必须是已经注册到Spring容器中的ViewResolver)返回给DispatcherServlet。</P></LI>
+        <LI>
+        <P>ViewResolver 结合Model和View，来渲染视图。</P></LI>
+        <LI>
+        <P>视图负责将渲染结果返回给客户端。</P></LI></OL></DIV>
+      <H1 class="sect0" id="_reference">Reference:</H1>
+      <DIV class="ulist">
+      <UL>
+        <LI>
+        <P>Spring 系列: Spring 框架简介 <A class="bare" href="https://www.ibm.com/developerworks/cn/java/wa-spring1/">https://www.ibm.com/developerworks/cn/java/wa-spring1/</A></P></LI></UL>
+      <DIV id="content">
+      <H1 class="sect0" id="_源码阅读">源码阅读:</H1>
+      <DIV class="paragraph">
+      <P><A href="https://github.com/tomlxq/best-practice/tree/master/springmvc-introduce">https://github.com/tomlxq/best-practice/tree/master/springmvc-introduce</A></P></DIV></DIV></DIV></DIV></DIV></DIV>
+      <DIV id="MySignature"></DIV>
+      <DIV class="clear"></DIV>
+      <DIV id="blog_post_info_block">
+      <DIV id="BlogPostCategory"></DIV>
+      <DIV id="EntryTag"></DIV>
+      <DIV id="blog_post_info"></DIV>
+      <DIV class="clear"></DIV>
+      <DIV id="post_next_prev"></DIV></DIV></DIV>
+      <DIV class="postfoot">		posted on <SPAN id="post-date">2016-05-25 
+      07:02</SPAN> <A href="http://www.cnblogs.com/tomlxq/">tomLuo</A> 阅读(<SPAN 
+      id="post_view_count">...</SPAN>) 评论(<SPAN 
+      id="post_comment_count">...</SPAN>)  <A href="https://i.cnblogs.com/EditPosts.aspx?postid=5525676" 
+      rel="nofollow">编辑</A> <A onclick="AddToWz(5525676);return false;" href="http://www.cnblogs.com/tomlxq/p/5525676.html#">收藏</A>
+      	 </DIV></DIV>
+<SCRIPT type="text/javascript">var allowComments=true,cb_blogId=286107,cb_entryId=5525676,cb_blogApp=currentBlogApp,cb_blogUserGuid='d7b96ff5-7b7a-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2016/5/25 7:02:00';loadViewCount(cb_entryId);</SCRIPT>
+       </DIV><A name="!comments"></A>
+      <DIV id="blog-comments-placeholder"></DIV>
+<SCRIPT type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</SCRIPT>
+       
+      <DIV class="commentform" id="comment_form"><A name="commentform"></A> 
+      <DIV id="divCommentShow"></DIV>
+      <DIV id="comment_nav"><SPAN id="span_refresh_tips"></SPAN><A id="lnk_RefreshComments" 
+      onclick="return RefreshCommentList();" href="javascript:void(0);" 
+      clientidmode="Static" runat="server">刷新评论</A><A onclick="return RefreshPage();" 
+      href="http://www.cnblogs.com/tomlxq/p/5525676.html#">刷新页面</A><A href="http://www.cnblogs.com/tomlxq/p/5525676.html#top">返回顶部</A></DIV>
+      <DIV id="comment_form_container"></DIV>
+      <DIV class="ad_text_commentbox" id="ad_text_under_commentbox"></DIV>
+      <DIV id="ad_t2"></DIV>
+      <DIV id="opt_under_post"></DIV>
+      <DIV class="c_ad_block" id="ad_c1"></DIV>
+      <DIV id="under_post_news"></DIV>
+      <DIV class="c_ad_block" id="ad_c2"></DIV>
+      <DIV id="under_post_kb"></DIV>
+      <DIV class="c_ad_block" id="HistoryToday"></DIV>
+<SCRIPT type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</SCRIPT>
+       </DIV></TR></TBODY></TABLE>
+<P id="footer">	Copyright @	tomLuo<BR>	Powered by:	 <A href="http://scottwater.com/blog" 
+target="_blank">.Text</A> and 	 <A href="http://asp.net/" 
+target="_blank">ASP.NET</A>	 <BR>	Theme by: <A href="http://www.dotnetmonster.com/" 
+target="_blank">.NET Monster</A> </P></BODY></HTML>
